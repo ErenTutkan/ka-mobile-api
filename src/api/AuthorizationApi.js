@@ -37,21 +37,13 @@ export default class AuthorizationApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the authControllerLogin operation.
-     * @callback module:api/AuthorizationApi~authControllerLoginCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/UserTokenDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Login
      * @param {module:model/UserLoginDTO} userLoginDTO User credentials. username field must be users email
-     * @param {module:api/AuthorizationApi~authControllerLoginCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/UserTokenDTO}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserTokenDTO} and HTTP response
      */
-    authControllerLogin(userLoginDTO, callback) {
+    authControllerLoginWithHttpInfo(userLoginDTO) {
       let postBody = userLoginDTO;
       // verify the required parameter 'userLoginDTO' is set
       if (userLoginDTO === undefined || userLoginDTO === null) {
@@ -74,24 +66,28 @@ export default class AuthorizationApi {
       return this.apiClient.callApi(
         '/auth/login', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the authControllerUserDetail operation.
-     * @callback module:api/AuthorizationApi~authControllerUserDetailCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/UserDetailDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Login
+     * @param {module:model/UserLoginDTO} userLoginDTO User credentials. username field must be users email
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserTokenDTO}
      */
+    authControllerLogin(userLoginDTO) {
+      return this.authControllerLoginWithHttpInfo(userLoginDTO)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Logged User Detail
-     * @param {module:api/AuthorizationApi~authControllerUserDetailCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/UserDetailDTO}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserDetailDTO} and HTTP response
      */
-    authControllerUserDetail(callback) {
+    authControllerUserDetailWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -110,25 +106,28 @@ export default class AuthorizationApi {
       return this.apiClient.callApi(
         '/auth/me', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the authControllerUserRegister operation.
-     * @callback module:api/AuthorizationApi~authControllerUserRegisterCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/UserTokenDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Logged User Detail
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserDetailDTO}
      */
+    authControllerUserDetail() {
+      return this.authControllerUserDetailWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Register user
      * @param {module:model/UserCreateDTO} userCreateDTO 
-     * @param {module:api/AuthorizationApi~authControllerUserRegisterCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/UserTokenDTO}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserTokenDTO} and HTTP response
      */
-    authControllerUserRegister(userCreateDTO, callback) {
+    authControllerUserRegisterWithHttpInfo(userCreateDTO) {
       let postBody = userCreateDTO;
       // verify the required parameter 'userCreateDTO' is set
       if (userCreateDTO === undefined || userCreateDTO === null) {
@@ -151,8 +150,20 @@ export default class AuthorizationApi {
       return this.apiClient.callApi(
         '/auth/register', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Register user
+     * @param {module:model/UserCreateDTO} userCreateDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserTokenDTO}
+     */
+    authControllerUserRegister(userCreateDTO) {
+      return this.authControllerUserRegisterWithHttpInfo(userCreateDTO)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

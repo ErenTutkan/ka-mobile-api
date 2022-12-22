@@ -34,21 +34,13 @@ export default class DeviceApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the deviceControllerAddNewDevice operation.
-     * @callback module:api/DeviceApi~deviceControllerAddNewDeviceCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/DeviceDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Add new device
      * @param {module:model/DeviceDTO} deviceDTO 
-     * @param {module:api/DeviceApi~deviceControllerAddNewDeviceCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/DeviceDTO}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeviceDTO} and HTTP response
      */
-    deviceControllerAddNewDevice(deviceDTO, callback) {
+    deviceControllerAddNewDeviceWithHttpInfo(deviceDTO) {
       let postBody = deviceDTO;
       // verify the required parameter 'deviceDTO' is set
       if (deviceDTO === undefined || deviceDTO === null) {
@@ -71,24 +63,29 @@ export default class DeviceApi {
       return this.apiClient.callApi(
         '/device', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the deviceControllerDelete operation.
-     * @callback module:api/DeviceApi~deviceControllerDeleteCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Add new device
+     * @param {module:model/DeviceDTO} deviceDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeviceDTO}
      */
+    deviceControllerAddNewDevice(deviceDTO) {
+      return this.deviceControllerAddNewDeviceWithHttpInfo(deviceDTO)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Delete
      * @param {Number} id 
-     * @param {module:api/DeviceApi~deviceControllerDeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deviceControllerDelete(id, callback) {
+    deviceControllerDeleteWithHttpInfo(id) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -112,23 +109,28 @@ export default class DeviceApi {
       return this.apiClient.callApi(
         '/device/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the deviceControllerFindUserAllItems operation.
-     * @callback module:api/DeviceApi~deviceControllerFindUserAllItemsCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Delete
+     * @param {Number} id 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deviceControllerDelete(id) {
+      return this.deviceControllerDeleteWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Find User All Items
-     * @param {module:api/DeviceApi~deviceControllerFindUserAllItemsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deviceControllerFindUserAllItems(callback) {
+    deviceControllerFindUserAllItemsWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -147,24 +149,28 @@ export default class DeviceApi {
       return this.apiClient.callApi(
         '/device/findUserAllItems', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the deviceControllerFindUserItem operation.
-     * @callback module:api/DeviceApi~deviceControllerFindUserItemCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Find User All Items
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deviceControllerFindUserAllItems() {
+      return this.deviceControllerFindUserAllItemsWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Find User Item
      * @param {Number} id 
-     * @param {module:api/DeviceApi~deviceControllerFindUserItemCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deviceControllerFindUserItem(id, callback) {
+    deviceControllerFindUserItemWithHttpInfo(id) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -188,26 +194,30 @@ export default class DeviceApi {
       return this.apiClient.callApi(
         '/device/findUserItem/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the deviceControllerUpdate operation.
-     * @callback module:api/DeviceApi~deviceControllerUpdateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/DeviceDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Find User Item
+     * @param {Number} id 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deviceControllerFindUserItem(id) {
+      return this.deviceControllerFindUserItemWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Update device info
      * @param {Number} id 
      * @param {module:model/DeviceDTO} deviceDTO 
-     * @param {module:api/DeviceApi~deviceControllerUpdateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/DeviceDTO}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeviceDTO} and HTTP response
      */
-    deviceControllerUpdate(id, deviceDTO, callback) {
+    deviceControllerUpdateWithHttpInfo(id, deviceDTO) {
       let postBody = deviceDTO;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -235,8 +245,21 @@ export default class DeviceApi {
       return this.apiClient.callApi(
         '/device/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Update device info
+     * @param {Number} id 
+     * @param {module:model/DeviceDTO} deviceDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeviceDTO}
+     */
+    deviceControllerUpdate(id, deviceDTO) {
+      return this.deviceControllerUpdateWithHttpInfo(id, deviceDTO)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

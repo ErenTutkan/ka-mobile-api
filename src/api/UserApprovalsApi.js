@@ -34,21 +34,13 @@ export default class UserApprovalsApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the approvalControllerCreate operation.
-     * @callback module:api/UserApprovalsApi~approvalControllerCreateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ApprovalDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Add
      * @param {module:model/ApprovalDTO} approvalDTO 
-     * @param {module:api/UserApprovalsApi~approvalControllerCreateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ApprovalDTO}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ApprovalDTO} and HTTP response
      */
-    approvalControllerCreate(approvalDTO, callback) {
+    approvalControllerCreateWithHttpInfo(approvalDTO) {
       let postBody = approvalDTO;
       // verify the required parameter 'approvalDTO' is set
       if (approvalDTO === undefined || approvalDTO === null) {
@@ -71,24 +63,29 @@ export default class UserApprovalsApi {
       return this.apiClient.callApi(
         '/approval', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the approvalControllerDelete operation.
-     * @callback module:api/UserApprovalsApi~approvalControllerDeleteCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Add
+     * @param {module:model/ApprovalDTO} approvalDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ApprovalDTO}
      */
+    approvalControllerCreate(approvalDTO) {
+      return this.approvalControllerCreateWithHttpInfo(approvalDTO)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * De
      * @param {Number} id 
-     * @param {module:api/UserApprovalsApi~approvalControllerDeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    approvalControllerDelete(id, callback) {
+    approvalControllerDeleteWithHttpInfo(id) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -112,23 +109,28 @@ export default class UserApprovalsApi {
       return this.apiClient.callApi(
         '/approval/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the approvalControllerFindUserAllItems operation.
-     * @callback module:api/UserApprovalsApi~approvalControllerFindUserAllItemsCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * De
+     * @param {Number} id 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    approvalControllerDelete(id) {
+      return this.approvalControllerDeleteWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Find User All Items
-     * @param {module:api/UserApprovalsApi~approvalControllerFindUserAllItemsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    approvalControllerFindUserAllItems(callback) {
+    approvalControllerFindUserAllItemsWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -147,24 +149,28 @@ export default class UserApprovalsApi {
       return this.apiClient.callApi(
         '/approval/findUserAllItems', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the approvalControllerFindUserItem operation.
-     * @callback module:api/UserApprovalsApi~approvalControllerFindUserItemCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Find User All Items
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    approvalControllerFindUserAllItems() {
+      return this.approvalControllerFindUserAllItemsWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Find User Item
      * @param {Number} id 
-     * @param {module:api/UserApprovalsApi~approvalControllerFindUserItemCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    approvalControllerFindUserItem(id, callback) {
+    approvalControllerFindUserItemWithHttpInfo(id) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -188,26 +194,30 @@ export default class UserApprovalsApi {
       return this.apiClient.callApi(
         '/approval/findUserItem/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the approvalControllerUpdate operation.
-     * @callback module:api/UserApprovalsApi~approvalControllerUpdateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ApprovalDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Find User Item
+     * @param {Number} id 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    approvalControllerFindUserItem(id) {
+      return this.approvalControllerFindUserItemWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Update
      * @param {Number} id 
      * @param {module:model/ApprovalDTO} approvalDTO 
-     * @param {module:api/UserApprovalsApi~approvalControllerUpdateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ApprovalDTO}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ApprovalDTO} and HTTP response
      */
-    approvalControllerUpdate(id, approvalDTO, callback) {
+    approvalControllerUpdateWithHttpInfo(id, approvalDTO) {
       let postBody = approvalDTO;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -235,8 +245,21 @@ export default class UserApprovalsApi {
       return this.apiClient.callApi(
         '/approval/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Update
+     * @param {Number} id 
+     * @param {module:model/ApprovalDTO} approvalDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ApprovalDTO}
+     */
+    approvalControllerUpdate(id, approvalDTO) {
+      return this.approvalControllerUpdateWithHttpInfo(id, approvalDTO)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

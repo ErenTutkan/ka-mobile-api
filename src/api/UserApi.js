@@ -35,19 +35,12 @@ export default class UserApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the userControllerUserDetail operation.
-     * @callback module:api/UserApi~userControllerUserDetailCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Logged User Detail
-     * @param {module:api/UserApi~userControllerUserDetailCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    userControllerUserDetail(callback) {
+    userControllerUserDetailWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -66,25 +59,28 @@ export default class UserApi {
       return this.apiClient.callApi(
         '/user', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the userControllerUserUpdate operation.
-     * @callback module:api/UserApi~userControllerUserUpdateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/UserUpdateDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Logged User Detail
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    userControllerUserDetail() {
+      return this.userControllerUserDetailWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Logged user update
      * @param {module:model/UserUpdateDTO} userUpdateDTO 
-     * @param {module:api/UserApi~userControllerUserUpdateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/UserUpdateDTO}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserUpdateDTO} and HTTP response
      */
-    userControllerUserUpdate(userUpdateDTO, callback) {
+    userControllerUserUpdateWithHttpInfo(userUpdateDTO) {
       let postBody = userUpdateDTO;
       // verify the required parameter 'userUpdateDTO' is set
       if (userUpdateDTO === undefined || userUpdateDTO === null) {
@@ -107,24 +103,29 @@ export default class UserApi {
       return this.apiClient.callApi(
         '/user', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the userControllerUserUpdateStatus operation.
-     * @callback module:api/UserApi~userControllerUserUpdateStatusCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Logged user update
+     * @param {module:model/UserUpdateDTO} userUpdateDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserUpdateDTO}
      */
+    userControllerUserUpdate(userUpdateDTO) {
+      return this.userControllerUserUpdateWithHttpInfo(userUpdateDTO)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Logged User Update Status
      * @param {module:model/UserStatusDTO} userStatusDTO 
-     * @param {module:api/UserApi~userControllerUserUpdateStatusCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    userControllerUserUpdateStatus(userStatusDTO, callback) {
+    userControllerUserUpdateStatusWithHttpInfo(userStatusDTO) {
       let postBody = userStatusDTO;
       // verify the required parameter 'userStatusDTO' is set
       if (userStatusDTO === undefined || userStatusDTO === null) {
@@ -147,8 +148,20 @@ export default class UserApi {
       return this.apiClient.callApi(
         '/user', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Logged User Update Status
+     * @param {module:model/UserStatusDTO} userStatusDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    userControllerUserUpdateStatus(userStatusDTO) {
+      return this.userControllerUserUpdateStatusWithHttpInfo(userStatusDTO)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

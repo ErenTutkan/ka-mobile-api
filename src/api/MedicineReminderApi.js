@@ -34,21 +34,13 @@ export default class MedicineReminderApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the reminderControllerCreate operation.
-     * @callback module:api/MedicineReminderApi~reminderControllerCreateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ReminderDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Add
      * @param {module:model/ReminderDTO} reminderDTO 
-     * @param {module:api/MedicineReminderApi~reminderControllerCreateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ReminderDTO}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ReminderDTO} and HTTP response
      */
-    reminderControllerCreate(reminderDTO, callback) {
+    reminderControllerCreateWithHttpInfo(reminderDTO) {
       let postBody = reminderDTO;
       // verify the required parameter 'reminderDTO' is set
       if (reminderDTO === undefined || reminderDTO === null) {
@@ -71,24 +63,29 @@ export default class MedicineReminderApi {
       return this.apiClient.callApi(
         '/reminder', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the reminderControllerDelete operation.
-     * @callback module:api/MedicineReminderApi~reminderControllerDeleteCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Add
+     * @param {module:model/ReminderDTO} reminderDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ReminderDTO}
      */
+    reminderControllerCreate(reminderDTO) {
+      return this.reminderControllerCreateWithHttpInfo(reminderDTO)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Delete
      * @param {Number} id 
-     * @param {module:api/MedicineReminderApi~reminderControllerDeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    reminderControllerDelete(id, callback) {
+    reminderControllerDeleteWithHttpInfo(id) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -112,23 +109,28 @@ export default class MedicineReminderApi {
       return this.apiClient.callApi(
         '/reminder/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the reminderControllerFindUserAllItems operation.
-     * @callback module:api/MedicineReminderApi~reminderControllerFindUserAllItemsCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Delete
+     * @param {Number} id 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    reminderControllerDelete(id) {
+      return this.reminderControllerDeleteWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Find User All Items
-     * @param {module:api/MedicineReminderApi~reminderControllerFindUserAllItemsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    reminderControllerFindUserAllItems(callback) {
+    reminderControllerFindUserAllItemsWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -147,24 +149,28 @@ export default class MedicineReminderApi {
       return this.apiClient.callApi(
         '/reminder/findUserAllItems', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the reminderControllerFindUserItem operation.
-     * @callback module:api/MedicineReminderApi~reminderControllerFindUserItemCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Find User All Items
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    reminderControllerFindUserAllItems() {
+      return this.reminderControllerFindUserAllItemsWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Find User Item
      * @param {Number} id 
-     * @param {module:api/MedicineReminderApi~reminderControllerFindUserItemCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    reminderControllerFindUserItem(id, callback) {
+    reminderControllerFindUserItemWithHttpInfo(id) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -188,26 +194,30 @@ export default class MedicineReminderApi {
       return this.apiClient.callApi(
         '/reminder/findUserItem/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the reminderControllerUpdate operation.
-     * @callback module:api/MedicineReminderApi~reminderControllerUpdateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ReminderDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Find User Item
+     * @param {Number} id 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    reminderControllerFindUserItem(id) {
+      return this.reminderControllerFindUserItemWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Update
      * @param {Number} id 
      * @param {module:model/ReminderDTO} reminderDTO 
-     * @param {module:api/MedicineReminderApi~reminderControllerUpdateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ReminderDTO}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ReminderDTO} and HTTP response
      */
-    reminderControllerUpdate(id, reminderDTO, callback) {
+    reminderControllerUpdateWithHttpInfo(id, reminderDTO) {
       let postBody = reminderDTO;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -235,8 +245,21 @@ export default class MedicineReminderApi {
       return this.apiClient.callApi(
         '/reminder/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Update
+     * @param {Number} id 
+     * @param {module:model/ReminderDTO} reminderDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ReminderDTO}
+     */
+    reminderControllerUpdate(id, reminderDTO) {
+      return this.reminderControllerUpdateWithHttpInfo(id, reminderDTO)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

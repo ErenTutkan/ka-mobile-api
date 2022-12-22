@@ -29,13 +29,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.BloodPressureApi();
 let bloodPressureDTO = new KolayAsistanMobileApi.BloodPressureDTO(); // BloodPressureDTO | 
-apiInstance.bloodPressureControllerCreate(bloodPressureDTO, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.bloodPressureControllerCreate(bloodPressureDTO).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -76,13 +75,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.BloodPressureApi();
 let id = 3.4; // Number | 
-apiInstance.bloodPressureControllerDelete(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.bloodPressureControllerDelete(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -122,13 +120,12 @@ let bearer = defaultClient.authentications['bearer'];
 bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.BloodPressureApi();
-apiInstance.bloodPressureControllerFindUserAllItems((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.bloodPressureControllerFindUserAllItems().then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -166,13 +163,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.BloodPressureApi();
 let id = 3.4; // Number | 
-apiInstance.bloodPressureControllerFindUserItem(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.bloodPressureControllerFindUserItem(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -214,13 +210,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 let apiInstance = new KolayAsistanMobileApi.BloodPressureApi();
 let id = 3.4; // Number | 
 let bloodPressureDTO = new KolayAsistanMobileApi.BloodPressureDTO(); // BloodPressureDTO | 
-apiInstance.bloodPressureControllerUpdate(id, bloodPressureDTO, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.bloodPressureControllerUpdate(id, bloodPressureDTO).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

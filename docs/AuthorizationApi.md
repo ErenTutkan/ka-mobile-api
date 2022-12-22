@@ -23,13 +23,12 @@ import KolayAsistanMobileApi from 'kolay_asistan_mobile_api';
 
 let apiInstance = new KolayAsistanMobileApi.AuthorizationApi();
 let userLoginDTO = new KolayAsistanMobileApi.UserLoginDTO(); // UserLoginDTO | User credentials. username field must be users email
-apiInstance.authControllerLogin(userLoginDTO, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.authControllerLogin(userLoginDTO).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -69,13 +68,12 @@ let bearer = defaultClient.authentications['bearer'];
 bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.AuthorizationApi();
-apiInstance.authControllerUserDetail((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.authControllerUserDetail().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -109,13 +107,12 @@ import KolayAsistanMobileApi from 'kolay_asistan_mobile_api';
 
 let apiInstance = new KolayAsistanMobileApi.AuthorizationApi();
 let userCreateDTO = new KolayAsistanMobileApi.UserCreateDTO(); // UserCreateDTO | 
-apiInstance.authControllerUserRegister(userCreateDTO, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.authControllerUserRegister(userCreateDTO).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

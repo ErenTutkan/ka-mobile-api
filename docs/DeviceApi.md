@@ -29,13 +29,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.DeviceApi();
 let deviceDTO = new KolayAsistanMobileApi.DeviceDTO(); // DeviceDTO | 
-apiInstance.deviceControllerAddNewDevice(deviceDTO, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.deviceControllerAddNewDevice(deviceDTO).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -76,13 +75,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.DeviceApi();
 let id = 3.4; // Number | 
-apiInstance.deviceControllerDelete(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deviceControllerDelete(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -122,13 +120,12 @@ let bearer = defaultClient.authentications['bearer'];
 bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.DeviceApi();
-apiInstance.deviceControllerFindUserAllItems((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deviceControllerFindUserAllItems().then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -166,13 +163,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.DeviceApi();
 let id = 3.4; // Number | 
-apiInstance.deviceControllerFindUserItem(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deviceControllerFindUserItem(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -214,13 +210,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 let apiInstance = new KolayAsistanMobileApi.DeviceApi();
 let id = 3.4; // Number | 
 let deviceDTO = new KolayAsistanMobileApi.DeviceDTO(); // DeviceDTO | 
-apiInstance.deviceControllerUpdate(id, deviceDTO, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.deviceControllerUpdate(id, deviceDTO).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

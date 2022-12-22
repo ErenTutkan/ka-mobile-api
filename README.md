@@ -104,14 +104,12 @@ var KolayAsistanMobileApi = require('kolay_asistan_mobile_api');
 
 var api = new KolayAsistanMobileApi.AuthorizationApi()
 var userLoginDTO = new KolayAsistanMobileApi.UserLoginDTO(); // {UserLoginDTO} User credentials. username field must be users email
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.authControllerLogin(userLoginDTO, callback);
+api.authControllerLogin(userLoginDTO).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
 
 ```
 

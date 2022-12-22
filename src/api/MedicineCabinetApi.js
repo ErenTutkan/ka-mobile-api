@@ -34,21 +34,13 @@ export default class MedicineCabinetApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the cabinetControllerCreate operation.
-     * @callback module:api/MedicineCabinetApi~cabinetControllerCreateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/CabinetDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Add
      * @param {module:model/CabinetDTO} cabinetDTO 
-     * @param {module:api/MedicineCabinetApi~cabinetControllerCreateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/CabinetDTO}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CabinetDTO} and HTTP response
      */
-    cabinetControllerCreate(cabinetDTO, callback) {
+    cabinetControllerCreateWithHttpInfo(cabinetDTO) {
       let postBody = cabinetDTO;
       // verify the required parameter 'cabinetDTO' is set
       if (cabinetDTO === undefined || cabinetDTO === null) {
@@ -71,24 +63,29 @@ export default class MedicineCabinetApi {
       return this.apiClient.callApi(
         '/cabinet', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the cabinetControllerDelete operation.
-     * @callback module:api/MedicineCabinetApi~cabinetControllerDeleteCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Add
+     * @param {module:model/CabinetDTO} cabinetDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CabinetDTO}
      */
+    cabinetControllerCreate(cabinetDTO) {
+      return this.cabinetControllerCreateWithHttpInfo(cabinetDTO)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Delete
      * @param {Number} id 
-     * @param {module:api/MedicineCabinetApi~cabinetControllerDeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    cabinetControllerDelete(id, callback) {
+    cabinetControllerDeleteWithHttpInfo(id) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -112,23 +109,28 @@ export default class MedicineCabinetApi {
       return this.apiClient.callApi(
         '/cabinet/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the cabinetControllerFindUserAllItems operation.
-     * @callback module:api/MedicineCabinetApi~cabinetControllerFindUserAllItemsCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Delete
+     * @param {Number} id 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    cabinetControllerDelete(id) {
+      return this.cabinetControllerDeleteWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Find User All Items
-     * @param {module:api/MedicineCabinetApi~cabinetControllerFindUserAllItemsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    cabinetControllerFindUserAllItems(callback) {
+    cabinetControllerFindUserAllItemsWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -147,24 +149,28 @@ export default class MedicineCabinetApi {
       return this.apiClient.callApi(
         '/cabinet/findUserAllItems', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the cabinetControllerFindUserItem operation.
-     * @callback module:api/MedicineCabinetApi~cabinetControllerFindUserItemCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Find User All Items
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    cabinetControllerFindUserAllItems() {
+      return this.cabinetControllerFindUserAllItemsWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Find User Item
      * @param {Number} id 
-     * @param {module:api/MedicineCabinetApi~cabinetControllerFindUserItemCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    cabinetControllerFindUserItem(id, callback) {
+    cabinetControllerFindUserItemWithHttpInfo(id) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -188,26 +194,30 @@ export default class MedicineCabinetApi {
       return this.apiClient.callApi(
         '/cabinet/findUserItem/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the cabinetControllerUpdate operation.
-     * @callback module:api/MedicineCabinetApi~cabinetControllerUpdateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/CabinetDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Find User Item
+     * @param {Number} id 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    cabinetControllerFindUserItem(id) {
+      return this.cabinetControllerFindUserItemWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Update
      * @param {Number} id 
      * @param {module:model/CabinetDTO} cabinetDTO 
-     * @param {module:api/MedicineCabinetApi~cabinetControllerUpdateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/CabinetDTO}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CabinetDTO} and HTTP response
      */
-    cabinetControllerUpdate(id, cabinetDTO, callback) {
+    cabinetControllerUpdateWithHttpInfo(id, cabinetDTO) {
       let postBody = cabinetDTO;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -235,8 +245,21 @@ export default class MedicineCabinetApi {
       return this.apiClient.callApi(
         '/cabinet/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Update
+     * @param {Number} id 
+     * @param {module:model/CabinetDTO} cabinetDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CabinetDTO}
+     */
+    cabinetControllerUpdate(id, cabinetDTO) {
+      return this.cabinetControllerUpdateWithHttpInfo(id, cabinetDTO)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

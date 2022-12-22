@@ -29,13 +29,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.MedicineCabinetApi();
 let cabinetDTO = new KolayAsistanMobileApi.CabinetDTO(); // CabinetDTO | 
-apiInstance.cabinetControllerCreate(cabinetDTO, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.cabinetControllerCreate(cabinetDTO).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -76,13 +75,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.MedicineCabinetApi();
 let id = 3.4; // Number | 
-apiInstance.cabinetControllerDelete(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.cabinetControllerDelete(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -122,13 +120,12 @@ let bearer = defaultClient.authentications['bearer'];
 bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.MedicineCabinetApi();
-apiInstance.cabinetControllerFindUserAllItems((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.cabinetControllerFindUserAllItems().then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -166,13 +163,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.MedicineCabinetApi();
 let id = 3.4; // Number | 
-apiInstance.cabinetControllerFindUserItem(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.cabinetControllerFindUserItem(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -214,13 +210,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 let apiInstance = new KolayAsistanMobileApi.MedicineCabinetApi();
 let id = 3.4; // Number | 
 let cabinetDTO = new KolayAsistanMobileApi.CabinetDTO(); // CabinetDTO | 
-apiInstance.cabinetControllerUpdate(id, cabinetDTO, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.cabinetControllerUpdate(id, cabinetDTO).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

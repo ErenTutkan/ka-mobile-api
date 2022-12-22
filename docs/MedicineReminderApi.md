@@ -29,13 +29,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.MedicineReminderApi();
 let reminderDTO = new KolayAsistanMobileApi.ReminderDTO(); // ReminderDTO | 
-apiInstance.reminderControllerCreate(reminderDTO, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.reminderControllerCreate(reminderDTO).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -76,13 +75,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.MedicineReminderApi();
 let id = 3.4; // Number | 
-apiInstance.reminderControllerDelete(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.reminderControllerDelete(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -122,13 +120,12 @@ let bearer = defaultClient.authentications['bearer'];
 bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.MedicineReminderApi();
-apiInstance.reminderControllerFindUserAllItems((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.reminderControllerFindUserAllItems().then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -166,13 +163,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.MedicineReminderApi();
 let id = 3.4; // Number | 
-apiInstance.reminderControllerFindUserItem(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.reminderControllerFindUserItem(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -214,13 +210,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 let apiInstance = new KolayAsistanMobileApi.MedicineReminderApi();
 let id = 3.4; // Number | 
 let reminderDTO = new KolayAsistanMobileApi.ReminderDTO(); // ReminderDTO | 
-apiInstance.reminderControllerUpdate(id, reminderDTO, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.reminderControllerUpdate(id, reminderDTO).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

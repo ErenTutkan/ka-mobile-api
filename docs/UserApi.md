@@ -26,13 +26,12 @@ let bearer = defaultClient.authentications['bearer'];
 bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.UserApi();
-apiInstance.userControllerUserDetail((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.userControllerUserDetail().then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -70,13 +69,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.UserApi();
 let userUpdateDTO = new KolayAsistanMobileApi.UserUpdateDTO(); // UserUpdateDTO | 
-apiInstance.userControllerUserUpdate(userUpdateDTO, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.userControllerUserUpdate(userUpdateDTO).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -117,13 +115,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.UserApi();
 let userStatusDTO = new KolayAsistanMobileApi.UserStatusDTO(); // UserStatusDTO | 
-apiInstance.userControllerUserUpdateStatus(userStatusDTO, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.userControllerUserUpdateStatus(userStatusDTO).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

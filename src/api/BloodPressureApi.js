@@ -34,21 +34,13 @@ export default class BloodPressureApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the bloodPressureControllerCreate operation.
-     * @callback module:api/BloodPressureApi~bloodPressureControllerCreateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/BloodPressureDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Add
      * @param {module:model/BloodPressureDTO} bloodPressureDTO 
-     * @param {module:api/BloodPressureApi~bloodPressureControllerCreateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/BloodPressureDTO}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BloodPressureDTO} and HTTP response
      */
-    bloodPressureControllerCreate(bloodPressureDTO, callback) {
+    bloodPressureControllerCreateWithHttpInfo(bloodPressureDTO) {
       let postBody = bloodPressureDTO;
       // verify the required parameter 'bloodPressureDTO' is set
       if (bloodPressureDTO === undefined || bloodPressureDTO === null) {
@@ -71,24 +63,29 @@ export default class BloodPressureApi {
       return this.apiClient.callApi(
         '/blood-pressure', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the bloodPressureControllerDelete operation.
-     * @callback module:api/BloodPressureApi~bloodPressureControllerDeleteCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Add
+     * @param {module:model/BloodPressureDTO} bloodPressureDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BloodPressureDTO}
      */
+    bloodPressureControllerCreate(bloodPressureDTO) {
+      return this.bloodPressureControllerCreateWithHttpInfo(bloodPressureDTO)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * De
      * @param {Number} id 
-     * @param {module:api/BloodPressureApi~bloodPressureControllerDeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    bloodPressureControllerDelete(id, callback) {
+    bloodPressureControllerDeleteWithHttpInfo(id) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -112,23 +109,28 @@ export default class BloodPressureApi {
       return this.apiClient.callApi(
         '/blood-pressure/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the bloodPressureControllerFindUserAllItems operation.
-     * @callback module:api/BloodPressureApi~bloodPressureControllerFindUserAllItemsCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * De
+     * @param {Number} id 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    bloodPressureControllerDelete(id) {
+      return this.bloodPressureControllerDeleteWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Find User All Items
-     * @param {module:api/BloodPressureApi~bloodPressureControllerFindUserAllItemsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    bloodPressureControllerFindUserAllItems(callback) {
+    bloodPressureControllerFindUserAllItemsWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -147,24 +149,28 @@ export default class BloodPressureApi {
       return this.apiClient.callApi(
         '/blood-pressure/findUserAllItems', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the bloodPressureControllerFindUserItem operation.
-     * @callback module:api/BloodPressureApi~bloodPressureControllerFindUserItemCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Find User All Items
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    bloodPressureControllerFindUserAllItems() {
+      return this.bloodPressureControllerFindUserAllItemsWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Find User Item
      * @param {Number} id 
-     * @param {module:api/BloodPressureApi~bloodPressureControllerFindUserItemCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    bloodPressureControllerFindUserItem(id, callback) {
+    bloodPressureControllerFindUserItemWithHttpInfo(id) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -188,26 +194,30 @@ export default class BloodPressureApi {
       return this.apiClient.callApi(
         '/blood-pressure/findUserItem/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the bloodPressureControllerUpdate operation.
-     * @callback module:api/BloodPressureApi~bloodPressureControllerUpdateCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/BloodPressureDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Find User Item
+     * @param {Number} id 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    bloodPressureControllerFindUserItem(id) {
+      return this.bloodPressureControllerFindUserItemWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Update
      * @param {Number} id 
      * @param {module:model/BloodPressureDTO} bloodPressureDTO 
-     * @param {module:api/BloodPressureApi~bloodPressureControllerUpdateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/BloodPressureDTO}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BloodPressureDTO} and HTTP response
      */
-    bloodPressureControllerUpdate(id, bloodPressureDTO, callback) {
+    bloodPressureControllerUpdateWithHttpInfo(id, bloodPressureDTO) {
       let postBody = bloodPressureDTO;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -235,8 +245,21 @@ export default class BloodPressureApi {
       return this.apiClient.callApi(
         '/blood-pressure/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Update
+     * @param {Number} id 
+     * @param {module:model/BloodPressureDTO} bloodPressureDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BloodPressureDTO}
+     */
+    bloodPressureControllerUpdate(id, bloodPressureDTO) {
+      return this.bloodPressureControllerUpdateWithHttpInfo(id, bloodPressureDTO)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

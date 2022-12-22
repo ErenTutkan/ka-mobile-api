@@ -29,13 +29,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.UserApprovalsApi();
 let approvalDTO = new KolayAsistanMobileApi.ApprovalDTO(); // ApprovalDTO | 
-apiInstance.approvalControllerCreate(approvalDTO, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.approvalControllerCreate(approvalDTO).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -76,13 +75,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.UserApprovalsApi();
 let id = 3.4; // Number | 
-apiInstance.approvalControllerDelete(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.approvalControllerDelete(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -122,13 +120,12 @@ let bearer = defaultClient.authentications['bearer'];
 bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.UserApprovalsApi();
-apiInstance.approvalControllerFindUserAllItems((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.approvalControllerFindUserAllItems().then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -166,13 +163,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.UserApprovalsApi();
 let id = 3.4; // Number | 
-apiInstance.approvalControllerFindUserItem(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.approvalControllerFindUserItem(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -214,13 +210,12 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 let apiInstance = new KolayAsistanMobileApi.UserApprovalsApi();
 let id = 3.4; // Number | 
 let approvalDTO = new KolayAsistanMobileApi.ApprovalDTO(); // ApprovalDTO | 
-apiInstance.approvalControllerUpdate(id, approvalDTO, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.approvalControllerUpdate(id, approvalDTO).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
