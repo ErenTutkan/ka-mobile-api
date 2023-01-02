@@ -103,8 +103,8 @@ var KolayAsistanMobileApi = require('kolay_asistan_mobile_api');
 
 
 var api = new KolayAsistanMobileApi.AuthorizationApi()
-var userLoginDTO = new KolayAsistanMobileApi.UserLoginDTO(); // {UserLoginDTO} User credentials. username field must be users email
-api.authControllerLogin(userLoginDTO).then(function(data) {
+var deviceStatusDTO = new KolayAsistanMobileApi.DeviceStatusDTO(); // {DeviceStatusDTO} 
+api.authControllerGetDeviceStatus(deviceStatusDTO).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -119,9 +119,10 @@ All URIs are relative to *https://ka-mobile-api.herokuapp.com/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*KolayAsistanMobileApi.AuthorizationApi* | [**authControllerGetDeviceStatus**](docs/AuthorizationApi.md#authControllerGetDeviceStatus) | **POST** /auth/get-device-status | Find Device
+*KolayAsistanMobileApi.AuthorizationApi* | [**authControllerLoggedDetail**](docs/AuthorizationApi.md#authControllerLoggedDetail) | **GET** /auth/me | Logged User Detail
 *KolayAsistanMobileApi.AuthorizationApi* | [**authControllerLogin**](docs/AuthorizationApi.md#authControllerLogin) | **POST** /auth/login | Login
-*KolayAsistanMobileApi.AuthorizationApi* | [**authControllerUserDetail**](docs/AuthorizationApi.md#authControllerUserDetail) | **GET** /auth/me | Logged User Detail
-*KolayAsistanMobileApi.AuthorizationApi* | [**authControllerUserRegister**](docs/AuthorizationApi.md#authControllerUserRegister) | **POST** /auth/register | Register user
+*KolayAsistanMobileApi.AuthorizationApi* | [**authControllerRegisterUser**](docs/AuthorizationApi.md#authControllerRegisterUser) | **POST** /auth/register | Register user
 *KolayAsistanMobileApi.BloodPressureApi* | [**bloodPressureControllerCreate**](docs/BloodPressureApi.md#bloodPressureControllerCreate) | **POST** /blood-pressure | Add
 *KolayAsistanMobileApi.BloodPressureApi* | [**bloodPressureControllerDelete**](docs/BloodPressureApi.md#bloodPressureControllerDelete) | **DELETE** /blood-pressure/{id} | De
 *KolayAsistanMobileApi.BloodPressureApi* | [**bloodPressureControllerFindUserAllItems**](docs/BloodPressureApi.md#bloodPressureControllerFindUserAllItems) | **GET** /blood-pressure/findUserAllItems | Find User All Items
@@ -145,6 +146,7 @@ Class | Method | HTTP request | Description
 *KolayAsistanMobileApi.UserApi* | [**userControllerUserDetail**](docs/UserApi.md#userControllerUserDetail) | **GET** /user | Logged User Detail
 *KolayAsistanMobileApi.UserApi* | [**userControllerUserUpdate**](docs/UserApi.md#userControllerUserUpdate) | **PUT** /user | Logged user update
 *KolayAsistanMobileApi.UserApi* | [**userControllerUserUpdateStatus**](docs/UserApi.md#userControllerUserUpdateStatus) | **PATCH** /user | Logged User Update Status
+*KolayAsistanMobileApi.UserApi* | [**userControllerValidateIdentityNo**](docs/UserApi.md#userControllerValidateIdentityNo) | **POST** /user/validate-identity-no | Find Device
 *KolayAsistanMobileApi.UserApprovalsApi* | [**approvalControllerCreate**](docs/UserApprovalsApi.md#approvalControllerCreate) | **POST** /approval | Add
 *KolayAsistanMobileApi.UserApprovalsApi* | [**approvalControllerDelete**](docs/UserApprovalsApi.md#approvalControllerDelete) | **DELETE** /approval/{id} | De
 *KolayAsistanMobileApi.UserApprovalsApi* | [**approvalControllerFindUserAllItems**](docs/UserApprovalsApi.md#approvalControllerFindUserAllItems) | **GET** /approval/findUserAllItems | Find User All Items
@@ -158,13 +160,16 @@ Class | Method | HTTP request | Description
  - [KolayAsistanMobileApi.BloodPressureDTO](docs/BloodPressureDTO.md)
  - [KolayAsistanMobileApi.CabinetDTO](docs/CabinetDTO.md)
  - [KolayAsistanMobileApi.DeviceDTO](docs/DeviceDTO.md)
+ - [KolayAsistanMobileApi.DeviceStatusDTO](docs/DeviceStatusDTO.md)
  - [KolayAsistanMobileApi.ReminderDTO](docs/ReminderDTO.md)
  - [KolayAsistanMobileApi.UserCreateDTO](docs/UserCreateDTO.md)
+ - [KolayAsistanMobileApi.UserCreateDTODeviceInfo](docs/UserCreateDTODeviceInfo.md)
  - [KolayAsistanMobileApi.UserDetailDTO](docs/UserDetailDTO.md)
  - [KolayAsistanMobileApi.UserLoginDTO](docs/UserLoginDTO.md)
  - [KolayAsistanMobileApi.UserStatusDTO](docs/UserStatusDTO.md)
  - [KolayAsistanMobileApi.UserTokenDTO](docs/UserTokenDTO.md)
  - [KolayAsistanMobileApi.UserUpdateDTO](docs/UserUpdateDTO.md)
+ - [KolayAsistanMobileApi.ValidateIdentityNoDTO](docs/ValidateIdentityNoDTO.md)
 
 
 ## Documentation for Authorization

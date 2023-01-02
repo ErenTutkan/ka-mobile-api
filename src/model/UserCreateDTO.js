@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import UserCreateDTODeviceInfo from './UserCreateDTODeviceInfo';
 
 /**
  * The UserCreateDTO model module.
@@ -22,14 +23,17 @@ class UserCreateDTO {
     /**
      * Constructs a new <code>UserCreateDTO</code>.
      * @alias module:model/UserCreateDTO
+     * @param authType {module:model/UserCreateDTO.AuthTypeEnum} Loging type
      * @param email {String} Email address
      * @param password {String} Password
      * @param registerProvider {module:model/UserCreateDTO.RegisterProviderEnum} Register provider
      * @param aggrementId {Number} Accepted aggrement Id
+     * @param deviceInfo {module:model/UserCreateDTODeviceInfo} 
+     * @param socialAccessToken {Number} Social provider access token
      */
-    constructor(email, password, registerProvider, aggrementId) { 
+    constructor(authType, email, password, registerProvider, aggrementId, deviceInfo, socialAccessToken) { 
         
-        UserCreateDTO.initialize(this, email, password, registerProvider, aggrementId);
+        UserCreateDTO.initialize(this, authType, email, password, registerProvider, aggrementId, deviceInfo, socialAccessToken);
     }
 
     /**
@@ -37,11 +41,14 @@ class UserCreateDTO {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, email, password, registerProvider, aggrementId) { 
+    static initialize(obj, authType, email, password, registerProvider, aggrementId, deviceInfo, socialAccessToken) { 
+        obj['authType'] = authType;
         obj['email'] = email;
         obj['password'] = password;
         obj['registerProvider'] = registerProvider || 'Manuel';
         obj['aggrementId'] = aggrementId;
+        obj['deviceInfo'] = deviceInfo;
+        obj['socialAccessToken'] = socialAccessToken;
     }
 
     /**
@@ -55,6 +62,9 @@ class UserCreateDTO {
         if (data) {
             obj = obj || new UserCreateDTO();
 
+            if (data.hasOwnProperty('authType')) {
+                obj['authType'] = ApiClient.convertToType(data['authType'], 'Number');
+            }
             if (data.hasOwnProperty('email')) {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
             }
@@ -66,6 +76,12 @@ class UserCreateDTO {
             }
             if (data.hasOwnProperty('aggrementId')) {
                 obj['aggrementId'] = ApiClient.convertToType(data['aggrementId'], 'Number');
+            }
+            if (data.hasOwnProperty('deviceInfo')) {
+                obj['deviceInfo'] = UserCreateDTODeviceInfo.constructFromObject(data['deviceInfo']);
+            }
+            if (data.hasOwnProperty('socialAccessToken')) {
+                obj['socialAccessToken'] = ApiClient.convertToType(data['socialAccessToken'], 'Number');
             }
         }
         return obj;
@@ -95,6 +111,10 @@ class UserCreateDTO {
         if (data['registerProvider'] && !(typeof data['registerProvider'] === 'string' || data['registerProvider'] instanceof String)) {
             throw new Error("Expected the field `registerProvider` to be a primitive type in the JSON string but got " + data['registerProvider']);
         }
+        // validate the optional field `deviceInfo`
+        if (data['deviceInfo']) { // data not null
+          UserCreateDTODeviceInfo.validateJSON(data['deviceInfo']);
+        }
 
         return true;
     }
@@ -102,7 +122,13 @@ class UserCreateDTO {
 
 }
 
-UserCreateDTO.RequiredProperties = ["email", "password", "registerProvider", "aggrementId"];
+UserCreateDTO.RequiredProperties = ["authType", "email", "password", "registerProvider", "aggrementId", "deviceInfo", "socialAccessToken"];
+
+/**
+ * Loging type
+ * @member {module:model/UserCreateDTO.AuthTypeEnum} authType
+ */
+UserCreateDTO.prototype['authType'] = undefined;
 
 /**
  * Email address
@@ -129,8 +155,34 @@ UserCreateDTO.prototype['registerProvider'] = 'Manuel';
  */
 UserCreateDTO.prototype['aggrementId'] = undefined;
 
+/**
+ * @member {module:model/UserCreateDTODeviceInfo} deviceInfo
+ */
+UserCreateDTO.prototype['deviceInfo'] = undefined;
+
+/**
+ * Social provider access token
+ * @member {Number} socialAccessToken
+ */
+UserCreateDTO.prototype['socialAccessToken'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>authType</code> property.
+ * @enum {Number}
+ * @readonly
+ */
+UserCreateDTO['AuthTypeEnum'] = {
+
+    /**
+     * value: null
+     * @const
+     */
+    "null": null
+};
 
 
 /**
@@ -156,7 +208,13 @@ UserCreateDTO['RegisterProviderEnum'] = {
      * value: "Google"
      * @const
      */
-    "Google": "Google"
+    "Google": "Google",
+
+    /**
+     * value: "Device"
+     * @const
+     */
+    "Device": "Device"
 };
 
 

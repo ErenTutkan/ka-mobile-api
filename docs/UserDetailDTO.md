@@ -28,6 +28,8 @@ Name | Type | Description | Notes
 
 * `Google` (value: `"Google"`)
 
+* `Device` (value: `"Device"`)
+
 
 
 

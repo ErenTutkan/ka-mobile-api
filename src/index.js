@@ -17,13 +17,16 @@ import ApprovalDTO from './model/ApprovalDTO';
 import BloodPressureDTO from './model/BloodPressureDTO';
 import CabinetDTO from './model/CabinetDTO';
 import DeviceDTO from './model/DeviceDTO';
+import DeviceStatusDTO from './model/DeviceStatusDTO';
 import ReminderDTO from './model/ReminderDTO';
 import UserCreateDTO from './model/UserCreateDTO';
+import UserCreateDTODeviceInfo from './model/UserCreateDTODeviceInfo';
 import UserDetailDTO from './model/UserDetailDTO';
 import UserLoginDTO from './model/UserLoginDTO';
 import UserStatusDTO from './model/UserStatusDTO';
 import UserTokenDTO from './model/UserTokenDTO';
 import UserUpdateDTO from './model/UserUpdateDTO';
+import ValidateIdentityNoDTO from './model/ValidateIdentityNoDTO';
 import AuthorizationApi from './api/AuthorizationApi';
 import BloodPressureApi from './api/BloodPressureApi';
 import DeviceApi from './api/DeviceApi';
@@ -96,6 +99,12 @@ export {
     DeviceDTO,
 
     /**
+     * The DeviceStatusDTO model constructor.
+     * @property {module:model/DeviceStatusDTO}
+     */
+    DeviceStatusDTO,
+
+    /**
      * The ReminderDTO model constructor.
      * @property {module:model/ReminderDTO}
      */
@@ -106,6 +115,12 @@ export {
      * @property {module:model/UserCreateDTO}
      */
     UserCreateDTO,
+
+    /**
+     * The UserCreateDTODeviceInfo model constructor.
+     * @property {module:model/UserCreateDTODeviceInfo}
+     */
+    UserCreateDTODeviceInfo,
 
     /**
      * The UserDetailDTO model constructor.
@@ -136,6 +151,12 @@ export {
      * @property {module:model/UserUpdateDTO}
      */
     UserUpdateDTO,
+
+    /**
+     * The ValidateIdentityNoDTO model constructor.
+     * @property {module:model/ValidateIdentityNoDTO}
+     */
+    ValidateIdentityNoDTO,
 
     /**
     * The AuthorizationApi service constructor.

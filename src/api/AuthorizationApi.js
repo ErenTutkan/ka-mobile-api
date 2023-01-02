@@ -13,6 +13,8 @@
 
 
 import ApiClient from "../ApiClient";
+import DeviceStatusDTO from '../model/DeviceStatusDTO';
+import Enum from '../model/Enum';
 import UserCreateDTO from '../model/UserCreateDTO';
 import UserDetailDTO from '../model/UserDetailDTO';
 import UserLoginDTO from '../model/UserLoginDTO';
@@ -36,6 +38,90 @@ export default class AuthorizationApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * Find Device
+     * @param {module:model/DeviceStatusDTO} deviceStatusDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Enum} and HTTP response
+     */
+    authControllerGetDeviceStatusWithHttpInfo(deviceStatusDTO) {
+      let postBody = deviceStatusDTO;
+      // verify the required parameter 'deviceStatusDTO' is set
+      if (deviceStatusDTO === undefined || deviceStatusDTO === null) {
+        throw new Error("Missing the required parameter 'deviceStatusDTO' when calling authControllerGetDeviceStatus");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = Enum;
+      return this.apiClient.callApi(
+        '/auth/get-device-status', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Find Device
+     * @param {module:model/DeviceStatusDTO} deviceStatusDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Enum}
+     */
+    authControllerGetDeviceStatus(deviceStatusDTO) {
+      return this.authControllerGetDeviceStatusWithHttpInfo(deviceStatusDTO)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Logged User Detail
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserDetailDTO} and HTTP response
+     */
+    authControllerLoggedDetailWithHttpInfo() {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['bearer'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = UserDetailDTO;
+      return this.apiClient.callApi(
+        '/auth/me', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Logged User Detail
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserDetailDTO}
+     */
+    authControllerLoggedDetail() {
+      return this.authControllerLoggedDetailWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**
@@ -84,54 +170,15 @@ export default class AuthorizationApi {
 
 
     /**
-     * Logged User Detail
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserDetailDTO} and HTTP response
-     */
-    authControllerUserDetailWithHttpInfo() {
-      let postBody = null;
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['bearer'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = UserDetailDTO;
-      return this.apiClient.callApi(
-        '/auth/me', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Logged User Detail
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserDetailDTO}
-     */
-    authControllerUserDetail() {
-      return this.authControllerUserDetailWithHttpInfo()
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
      * Register user
      * @param {module:model/UserCreateDTO} userCreateDTO 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserTokenDTO} and HTTP response
      */
-    authControllerUserRegisterWithHttpInfo(userCreateDTO) {
+    authControllerRegisterUserWithHttpInfo(userCreateDTO) {
       let postBody = userCreateDTO;
       // verify the required parameter 'userCreateDTO' is set
       if (userCreateDTO === undefined || userCreateDTO === null) {
-        throw new Error("Missing the required parameter 'userCreateDTO' when calling authControllerUserRegister");
+        throw new Error("Missing the required parameter 'userCreateDTO' when calling authControllerRegisterUser");
       }
 
       let pathParams = {
@@ -159,8 +206,8 @@ export default class AuthorizationApi {
      * @param {module:model/UserCreateDTO} userCreateDTO 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserTokenDTO}
      */
-    authControllerUserRegister(userCreateDTO) {
-      return this.authControllerUserRegisterWithHttpInfo(userCreateDTO)
+    authControllerRegisterUser(userCreateDTO) {
+      return this.authControllerRegisterUserWithHttpInfo(userCreateDTO)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

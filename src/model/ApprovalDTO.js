@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Datetime from './Datetime';
 
 /**
  * The ApprovalDTO model module.
@@ -29,7 +30,7 @@ class ApprovalDTO {
      * @param sms {String} sms approval
      * @param adv {String} adv approval
      * @param email {String} email approval
-     * @param approvedDate {Date} approval date
+     * @param approvedDate {module:model/Datetime} approval date
      */
     constructor(agreementId, ip, device, kvkk, sms, adv, email, approvedDate) { 
         
@@ -85,7 +86,7 @@ class ApprovalDTO {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
             }
             if (data.hasOwnProperty('approvedDate')) {
-                obj['approvedDate'] = ApiClient.convertToType(data['approvedDate'], 'Date');
+                obj['approvedDate'] = ApiClient.convertToType(data['approvedDate'], Datetime);
             }
         }
         return obj;
@@ -180,7 +181,7 @@ ApprovalDTO.prototype['email'] = undefined;
 
 /**
  * approval date
- * @member {Date} approvedDate
+ * @member {module:model/Datetime} approvedDate
  */
 ApprovalDTO.prototype['approvedDate'] = undefined;
 

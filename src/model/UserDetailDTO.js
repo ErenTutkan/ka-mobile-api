@@ -264,7 +264,13 @@ UserDetailDTO['RegisterProviderEnum'] = {
      * value: "Google"
      * @const
      */
-    "Google": "Google"
+    "Google": "Google",
+
+    /**
+     * value: "Device"
+     * @const
+     */
+    "Device": "Device"
 };
 
 

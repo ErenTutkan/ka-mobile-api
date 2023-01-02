@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import UserStatusDTO from '../model/UserStatusDTO';
 import UserUpdateDTO from '../model/UserUpdateDTO';
+import ValidateIdentityNoDTO from '../model/ValidateIdentityNoDTO';
 
 /**
 * User service.
@@ -159,6 +160,51 @@ export default class UserApi {
      */
     userControllerUserUpdateStatus(userStatusDTO) {
       return this.userControllerUserUpdateStatusWithHttpInfo(userStatusDTO)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Find Device
+     * @param {module:model/ValidateIdentityNoDTO} validateIdentityNoDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    userControllerValidateIdentityNoWithHttpInfo(validateIdentityNoDTO) {
+      let postBody = validateIdentityNoDTO;
+      // verify the required parameter 'validateIdentityNoDTO' is set
+      if (validateIdentityNoDTO === undefined || validateIdentityNoDTO === null) {
+        throw new Error("Missing the required parameter 'validateIdentityNoDTO' when calling userControllerValidateIdentityNo");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['bearer'];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/user/validate-identity-no', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Find Device
+     * @param {module:model/ValidateIdentityNoDTO} validateIdentityNoDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    userControllerValidateIdentityNo(validateIdentityNoDTO) {
+      return this.userControllerValidateIdentityNoWithHttpInfo(validateIdentityNoDTO)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

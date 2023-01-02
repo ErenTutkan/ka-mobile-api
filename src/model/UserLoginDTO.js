@@ -22,12 +22,14 @@ class UserLoginDTO {
     /**
      * Constructs a new <code>UserLoginDTO</code>.
      * @alias module:model/UserLoginDTO
+     * @param authType {module:model/UserLoginDTO.AuthTypeEnum} Loging type
      * @param username {String} User email address. please set email address. not set username
      * @param password {String} password
+     * @param uuid {String} uuid
      */
-    constructor(username, password) { 
+    constructor(authType, username, password, uuid) { 
         
-        UserLoginDTO.initialize(this, username, password);
+        UserLoginDTO.initialize(this, authType, username, password, uuid);
     }
 
     /**
@@ -35,9 +37,11 @@ class UserLoginDTO {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, username, password) { 
+    static initialize(obj, authType, username, password, uuid) { 
+        obj['authType'] = authType;
         obj['username'] = username;
         obj['password'] = password;
+        obj['uuid'] = uuid;
     }
 
     /**
@@ -51,11 +55,17 @@ class UserLoginDTO {
         if (data) {
             obj = obj || new UserLoginDTO();
 
+            if (data.hasOwnProperty('authType')) {
+                obj['authType'] = ApiClient.convertToType(data['authType'], 'Number');
+            }
             if (data.hasOwnProperty('username')) {
                 obj['username'] = ApiClient.convertToType(data['username'], 'String');
             }
             if (data.hasOwnProperty('password')) {
                 obj['password'] = ApiClient.convertToType(data['password'], 'String');
+            }
+            if (data.hasOwnProperty('uuid')) {
+                obj['uuid'] = ApiClient.convertToType(data['uuid'], 'String');
             }
         }
         return obj;
@@ -81,6 +91,10 @@ class UserLoginDTO {
         if (data['password'] && !(typeof data['password'] === 'string' || data['password'] instanceof String)) {
             throw new Error("Expected the field `password` to be a primitive type in the JSON string but got " + data['password']);
         }
+        // ensure the json data is a string
+        if (data['uuid'] && !(typeof data['uuid'] === 'string' || data['uuid'] instanceof String)) {
+            throw new Error("Expected the field `uuid` to be a primitive type in the JSON string but got " + data['uuid']);
+        }
 
         return true;
     }
@@ -88,7 +102,13 @@ class UserLoginDTO {
 
 }
 
-UserLoginDTO.RequiredProperties = ["username", "password"];
+UserLoginDTO.RequiredProperties = ["authType", "username", "password", "uuid"];
+
+/**
+ * Loging type
+ * @member {module:model/UserLoginDTO.AuthTypeEnum} authType
+ */
+UserLoginDTO.prototype['authType'] = undefined;
 
 /**
  * User email address. please set email address. not set username
@@ -102,8 +122,29 @@ UserLoginDTO.prototype['username'] = undefined;
  */
 UserLoginDTO.prototype['password'] = undefined;
 
+/**
+ * uuid
+ * @member {String} uuid
+ */
+UserLoginDTO.prototype['uuid'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>authType</code> property.
+ * @enum {Number}
+ * @readonly
+ */
+UserLoginDTO['AuthTypeEnum'] = {
+
+    /**
+     * value: null
+     * @const
+     */
+    "null": null
+};
 
 
 
