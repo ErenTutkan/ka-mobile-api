@@ -14,7 +14,6 @@
 
 import ApiClient from "../ApiClient";
 import DeviceStatusDTO from '../model/DeviceStatusDTO';
-import Enum from '../model/Enum';
 import UserCreateDTO from '../model/UserCreateDTO';
 import UserDetailDTO from '../model/UserDetailDTO';
 import UserLoginDTO from '../model/UserLoginDTO';
@@ -43,7 +42,7 @@ export default class AuthorizationApi {
     /**
      * Find Device
      * @param {module:model/DeviceStatusDTO} deviceStatusDTO 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Enum} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
      */
     authControllerGetDeviceStatusWithHttpInfo(deviceStatusDTO) {
       let postBody = deviceStatusDTO;
@@ -64,7 +63,7 @@ export default class AuthorizationApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = Enum;
+      let returnType = Object;
       return this.apiClient.callApi(
         '/auth/get-device-status', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -75,7 +74,7 @@ export default class AuthorizationApi {
     /**
      * Find Device
      * @param {module:model/DeviceStatusDTO} deviceStatusDTO 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Enum}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
      */
     authControllerGetDeviceStatus(deviceStatusDTO) {
       return this.authControllerGetDeviceStatusWithHttpInfo(deviceStatusDTO)
