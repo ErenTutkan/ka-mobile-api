@@ -49,6 +49,3 @@ src/model/UserStatusDTO.js
 src/model/UserTokenDTO.js
 src/model/UserUpdateDTO.js
 src/model/ValidateIdentityNoDTO.js
-test/model/DeviceStatusDTO.spec.js
-test/model/UserCreateDTODeviceInfo.spec.js
-test/model/ValidateIdentityNoDTO.spec.js
