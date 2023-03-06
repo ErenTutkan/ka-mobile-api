@@ -29,7 +29,7 @@ class ApprovalDTO {
      * @param sms {String} sms approval
      * @param adv {String} adv approval
      * @param email {String} email approval
-     * @param approvedDate {Date} approval date
+     * @param approvedDate {String} approval date
      */
     constructor(agreementId, ip, device, kvkk, sms, adv, email, approvedDate) { 
         
@@ -85,7 +85,7 @@ class ApprovalDTO {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
             }
             if (data.hasOwnProperty('approvedDate')) {
-                obj['approvedDate'] = ApiClient.convertToType(data['approvedDate'], 'Date');
+                obj['approvedDate'] = ApiClient.convertToType(data['approvedDate'], 'String');
             }
         }
         return obj;
@@ -126,6 +126,10 @@ class ApprovalDTO {
         // ensure the json data is a string
         if (data['email'] && !(typeof data['email'] === 'string' || data['email'] instanceof String)) {
             throw new Error("Expected the field `email` to be a primitive type in the JSON string but got " + data['email']);
+        }
+        // ensure the json data is a string
+        if (data['approvedDate'] && !(typeof data['approvedDate'] === 'string' || data['approvedDate'] instanceof String)) {
+            throw new Error("Expected the field `approvedDate` to be a primitive type in the JSON string but got " + data['approvedDate']);
         }
 
         return true;
@@ -180,7 +184,7 @@ ApprovalDTO.prototype['email'] = undefined;
 
 /**
  * approval date
- * @member {Date} approvedDate
+ * @member {String} approvedDate
  */
 ApprovalDTO.prototype['approvedDate'] = undefined;
 

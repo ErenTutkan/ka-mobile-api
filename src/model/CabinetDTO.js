@@ -25,7 +25,7 @@ class CabinetDTO {
      * @param medicineBarcode {String} medicineBarcode
      * @param packType {String} packType
      * @param packCount {Number} packCount
-     * @param expireDate {String} expireDate
+     * @param expireDate {Date} expireDate
      * @param comment {String} comment
      */
     constructor(medicineBarcode, packType, packCount, expireDate, comment) { 
@@ -67,7 +67,7 @@ class CabinetDTO {
                 obj['packCount'] = ApiClient.convertToType(data['packCount'], 'Number');
             }
             if (data.hasOwnProperty('expireDate')) {
-                obj['expireDate'] = ApiClient.convertToType(data['expireDate'], 'String');
+                obj['expireDate'] = ApiClient.convertToType(data['expireDate'], 'Date');
             }
             if (data.hasOwnProperty('comment')) {
                 obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
@@ -95,10 +95,6 @@ class CabinetDTO {
         // ensure the json data is a string
         if (data['packType'] && !(typeof data['packType'] === 'string' || data['packType'] instanceof String)) {
             throw new Error("Expected the field `packType` to be a primitive type in the JSON string but got " + data['packType']);
-        }
-        // ensure the json data is a string
-        if (data['expireDate'] && !(typeof data['expireDate'] === 'string' || data['expireDate'] instanceof String)) {
-            throw new Error("Expected the field `expireDate` to be a primitive type in the JSON string but got " + data['expireDate']);
         }
         // ensure the json data is a string
         if (data['comment'] && !(typeof data['comment'] === 'string' || data['comment'] instanceof String)) {
@@ -133,7 +129,7 @@ CabinetDTO.prototype['packCount'] = undefined;
 
 /**
  * expireDate
- * @member {String} expireDate
+ * @member {Date} expireDate
  */
 CabinetDTO.prototype['expireDate'] = undefined;
 
