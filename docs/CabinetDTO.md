@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **medicineBarcode** | **String** | medicineBarcode | 
 **packType** | **String** | packType | 
 **packCount** | **Number** | packCount | 
-**expireDate** | **Date** | expireDate | 
+**expireDate** | **String** | expireDate | 
 **comment** | **String** | comment | 
 
 
