@@ -5,17 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **measurementDate** | **Date** | measurementDate | 
-**small** | **Number** | small | 
-**big** | **Number** | big | 
-**pulse** | **Number** | pulse | 
-**position** | **String** | position | [default to &#39;LeftArm&#39;]
+**big** | **Number** | Measurement Value | 
+**small** | **Number** | Measurement Small Value | 
+**pulse** | **Number** | Pulse | 
+**bodyPosition** | **String** | Body Position | [default to &#39;LeftArm&#39;]
 **period** | **String** | period | [default to &#39;OtherTime&#39;]
-**hungry** | **String** | hungry | [default to &#39;Full&#39;]
 **tag** | **String** | tag | 
+**note** | **String** | note | 
 
 
 
-## Enum: PositionEnum
+## Enum: BodyPositionEnum
 
 
 * `LeftArm` (value: `"LeftArm"`)
@@ -38,17 +38,6 @@ Name | Type | Description | Notes
 * `BeforeBed` (value: `"BeforeBed"`)
 
 * `OtherTime` (value: `"OtherTime"`)
-
-
-
-
-
-## Enum: HungryEnum
-
-
-* `Hungry` (value: `"Hungry"`)
-
-* `Full` (value: `"Full"`)
 
 
 

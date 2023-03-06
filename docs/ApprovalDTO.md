@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **sms** | **String** | sms approval | 
 **adv** | **String** | adv approval | 
 **email** | **String** | email approval | 
-**approvedDate** | **Date** | approval date | 
+**approvedDate** | [**Datetime**](Datetime.md) | approval date | 
 
 

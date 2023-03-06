@@ -13,18 +13,18 @@
 
 
 import ApiClient from "../ApiClient";
-import DeviceDTO from '../model/DeviceDTO';
+import BloodGlucoseDTO from '../model/BloodGlucoseDTO';
 
 /**
-* Device service.
-* @module api/DeviceApi
+* BloodGlucose service.
+* @module api/BloodGlucoseApi
 * @version v1
 */
-export default class DeviceApi {
+export default class BloodGlucoseApi {
 
     /**
-    * Constructs a new DeviceApi. 
-    * @alias module:api/DeviceApi
+    * Constructs a new BloodGlucoseApi. 
+    * @alias module:api/BloodGlucoseApi
     * @class
     * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
     * default to {@link module:ApiClient#instance} if unspecified.
@@ -36,15 +36,15 @@ export default class DeviceApi {
 
 
     /**
-     * Add new device
-     * @param {module:model/DeviceDTO} deviceDTO 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeviceDTO} and HTTP response
+     * Add
+     * @param {module:model/BloodGlucoseDTO} bloodGlucoseDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BloodGlucoseDTO} and HTTP response
      */
-    deviceControllerAddNewDeviceWithHttpInfo(deviceDTO) {
-      let postBody = deviceDTO;
-      // verify the required parameter 'deviceDTO' is set
-      if (deviceDTO === undefined || deviceDTO === null) {
-        throw new Error("Missing the required parameter 'deviceDTO' when calling deviceControllerAddNewDevice");
+    bloodGlucoseControllerCreateWithHttpInfo(bloodGlucoseDTO) {
+      let postBody = bloodGlucoseDTO;
+      // verify the required parameter 'bloodGlucoseDTO' is set
+      if (bloodGlucoseDTO === undefined || bloodGlucoseDTO === null) {
+        throw new Error("Missing the required parameter 'bloodGlucoseDTO' when calling bloodGlucoseControllerCreate");
       }
 
       let pathParams = {
@@ -59,21 +59,21 @@ export default class DeviceApi {
       let authNames = ['bearer'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = DeviceDTO;
+      let returnType = BloodGlucoseDTO;
       return this.apiClient.callApi(
-        '/device', 'POST',
+        '/blood-glucose', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Add new device
-     * @param {module:model/DeviceDTO} deviceDTO 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeviceDTO}
+     * Add
+     * @param {module:model/BloodGlucoseDTO} bloodGlucoseDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BloodGlucoseDTO}
      */
-    deviceControllerAddNewDevice(deviceDTO) {
-      return this.deviceControllerAddNewDeviceWithHttpInfo(deviceDTO)
+    bloodGlucoseControllerCreate(bloodGlucoseDTO) {
+      return this.bloodGlucoseControllerCreateWithHttpInfo(bloodGlucoseDTO)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -81,15 +81,15 @@ export default class DeviceApi {
 
 
     /**
-     * Delete
+     * De
      * @param {Number} id 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deviceControllerDeleteWithHttpInfo(id) {
+    bloodGlucoseControllerDeleteWithHttpInfo(id) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling deviceControllerDelete");
+        throw new Error("Missing the required parameter 'id' when calling bloodGlucoseControllerDelete");
       }
 
       let pathParams = {
@@ -107,19 +107,19 @@ export default class DeviceApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/device/{id}', 'DELETE',
+        '/blood-glucose/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Delete
+     * De
      * @param {Number} id 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    deviceControllerDelete(id) {
-      return this.deviceControllerDeleteWithHttpInfo(id)
+    bloodGlucoseControllerDelete(id) {
+      return this.bloodGlucoseControllerDeleteWithHttpInfo(id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -130,7 +130,7 @@ export default class DeviceApi {
      * Find User All Items
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deviceControllerFindUserAllItemsWithHttpInfo() {
+    bloodGlucoseControllerFindUserAllItemsWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -147,7 +147,7 @@ export default class DeviceApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/device/findUserAllItems', 'GET',
+        '/blood-glucose/findUserAllItems', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -157,8 +157,8 @@ export default class DeviceApi {
      * Find User All Items
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    deviceControllerFindUserAllItems() {
-      return this.deviceControllerFindUserAllItemsWithHttpInfo()
+    bloodGlucoseControllerFindUserAllItems() {
+      return this.bloodGlucoseControllerFindUserAllItemsWithHttpInfo()
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -170,11 +170,11 @@ export default class DeviceApi {
      * @param {Number} id 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deviceControllerFindUserItemWithHttpInfo(id) {
+    bloodGlucoseControllerFindUserItemWithHttpInfo(id) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling deviceControllerFindUserItem");
+        throw new Error("Missing the required parameter 'id' when calling bloodGlucoseControllerFindUserItem");
       }
 
       let pathParams = {
@@ -192,7 +192,7 @@ export default class DeviceApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/device/findUserItem/{id}', 'GET',
+        '/blood-glucose/findUserItem/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -203,8 +203,8 @@ export default class DeviceApi {
      * @param {Number} id 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    deviceControllerFindUserItem(id) {
-      return this.deviceControllerFindUserItemWithHttpInfo(id)
+    bloodGlucoseControllerFindUserItem(id) {
+      return this.bloodGlucoseControllerFindUserItemWithHttpInfo(id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -212,20 +212,20 @@ export default class DeviceApi {
 
 
     /**
-     * Update device info
+     * Update
      * @param {Number} id 
-     * @param {module:model/DeviceDTO} deviceDTO 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeviceDTO} and HTTP response
+     * @param {module:model/BloodGlucoseDTO} bloodGlucoseDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BloodGlucoseDTO} and HTTP response
      */
-    deviceControllerUpdateWithHttpInfo(id, deviceDTO) {
-      let postBody = deviceDTO;
+    bloodGlucoseControllerUpdateWithHttpInfo(id, bloodGlucoseDTO) {
+      let postBody = bloodGlucoseDTO;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling deviceControllerUpdate");
+        throw new Error("Missing the required parameter 'id' when calling bloodGlucoseControllerUpdate");
       }
-      // verify the required parameter 'deviceDTO' is set
-      if (deviceDTO === undefined || deviceDTO === null) {
-        throw new Error("Missing the required parameter 'deviceDTO' when calling deviceControllerUpdate");
+      // verify the required parameter 'bloodGlucoseDTO' is set
+      if (bloodGlucoseDTO === undefined || bloodGlucoseDTO === null) {
+        throw new Error("Missing the required parameter 'bloodGlucoseDTO' when calling bloodGlucoseControllerUpdate");
       }
 
       let pathParams = {
@@ -241,22 +241,22 @@ export default class DeviceApi {
       let authNames = ['bearer'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = DeviceDTO;
+      let returnType = BloodGlucoseDTO;
       return this.apiClient.callApi(
-        '/device/{id}', 'PUT',
+        '/blood-glucose/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Update device info
+     * Update
      * @param {Number} id 
-     * @param {module:model/DeviceDTO} deviceDTO 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeviceDTO}
+     * @param {module:model/BloodGlucoseDTO} bloodGlucoseDTO 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BloodGlucoseDTO}
      */
-    deviceControllerUpdate(id, deviceDTO) {
-      return this.deviceControllerUpdateWithHttpInfo(id, deviceDTO)
+    bloodGlucoseControllerUpdate(id, bloodGlucoseDTO) {
+      return this.bloodGlucoseControllerUpdateWithHttpInfo(id, bloodGlucoseDTO)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

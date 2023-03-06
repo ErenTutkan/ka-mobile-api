@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## authControllerGetDeviceStatus
 
-> Object authControllerGetDeviceStatus(deviceStatusDTO)
+> Enum authControllerGetDeviceStatus(deviceStatusDTO)
 
 Find Device
 
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**Enum**](Enum.md)
 
 ### Authorization
 
