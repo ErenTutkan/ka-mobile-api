@@ -53,5 +53,3 @@ src/model/UserStatusDTO.js
 src/model/UserTokenDTO.js
 src/model/UserUpdateDTO.js
 src/model/ValidateIdentityNoDTO.js
-test/api/BloodGlucoseApi.spec.js
-test/model/BloodGlucoseDTO.spec.js
