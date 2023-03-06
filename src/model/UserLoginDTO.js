@@ -143,6 +143,18 @@ UserLoginDTO['AuthTypeEnum'] = {
      * value: null
      * @const
      */
+    "null": null,
+
+    /**
+     * value: null
+     * @const
+     */
+    "null": null,
+
+    /**
+     * value: null
+     * @const
+     */
     "null": null
 };
 
