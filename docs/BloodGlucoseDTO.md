@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **measurementDate** | **Date** | Measurement Date | 
 **glucoseValue** | **Number** | Measurement Value | 
-**hungryStatus** | **String** | Hungry Status | [default to &#39;AfterMeal&#39;]
+**hungryStatus** | **Object** | Hungry Status | 
 **tag** | **String** | tag | 
 **note** | **String** | note | 
 

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**authType** | **Number** | Loging type | 
+**authType** | **Object** | Loging type | 
 **email** | **String** | Email address | 
 **password** | **String** | Password | 
-**registerProvider** | **String** | Register provider | [default to &#39;Manuel&#39;]
+**registerProvider** | **Object** | Register provider | 
 **aggrementId** | **Number** | Accepted aggrement Id | 
 **deviceInfo** | [**UserCreateDTODeviceInfo**](UserCreateDTODeviceInfo.md) |  | 
 **socialAccessToken** | **Number** | Social provider access token | 
@@ -17,7 +17,11 @@ Name | Type | Description | Notes
 ## Enum: AuthTypeEnum
 
 
-* `null` (value: `null`)
+* `Anonymous` (value: `"Anonymous"`)
+
+* `Registered` (value: `"Registered"`)
+
+* `Unknown` (value: `"Unknown"`)
 
 
 

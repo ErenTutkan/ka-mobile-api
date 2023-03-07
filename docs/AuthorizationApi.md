@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## authControllerGetDeviceStatus
 
-> String authControllerGetDeviceStatus(deviceStatusDTO)
+> Object authControllerGetDeviceStatus(deviceStatusDTO)
 
 Find Device
 
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+**Object**
 
 ### Authorization
 

@@ -47,7 +47,7 @@ class ReminderDTO {
         obj['medicineName'] = medicineName;
         obj['usageItemCount'] = usageItemCount;
         obj['usageHours'] = usageHours;
-        obj['usageFrequency'] = usageFrequency || 'EveryDay';
+        obj['usageFrequency'] = usageFrequency;
         obj['reminderStartDate'] = reminderStartDate;
         obj['reminderEndDate'] = reminderEndDate;
         obj['tag'] = tag;
@@ -78,7 +78,7 @@ class ReminderDTO {
                 obj['usageHours'] = ApiClient.convertToType(data['usageHours'], ['String']);
             }
             if (data.hasOwnProperty('usageFrequency')) {
-                obj['usageFrequency'] = ApiClient.convertToType(data['usageFrequency'], 'String');
+                obj['usageFrequency'] = ApiClient.convertToType(data['usageFrequency'], Object);
             }
             if (data.hasOwnProperty('reminderStartDate')) {
                 obj['reminderStartDate'] = ApiClient.convertToType(data['reminderStartDate'], 'Date');
@@ -119,10 +119,6 @@ class ReminderDTO {
         // ensure the json data is an array
         if (!Array.isArray(data['usageHours'])) {
             throw new Error("Expected the field `usageHours` to be an array in the JSON data but got " + data['usageHours']);
-        }
-        // ensure the json data is a string
-        if (data['usageFrequency'] && !(typeof data['usageFrequency'] === 'string' || data['usageFrequency'] instanceof String)) {
-            throw new Error("Expected the field `usageFrequency` to be a primitive type in the JSON string but got " + data['usageFrequency']);
         }
         // ensure the json data is a string
         if (data['tag'] && !(typeof data['tag'] === 'string' || data['tag'] instanceof String)) {
@@ -168,9 +164,8 @@ ReminderDTO.prototype['usageHours'] = undefined;
 /**
  * Usage Frequency
  * @member {module:model/ReminderDTO.UsageFrequencyEnum} usageFrequency
- * @default 'EveryDay'
  */
-ReminderDTO.prototype['usageFrequency'] = 'EveryDay';
+ReminderDTO.prototype['usageFrequency'] = undefined;
 
 /**
  * reminderStartDate
@@ -202,7 +197,7 @@ ReminderDTO.prototype['note'] = undefined;
 
 /**
  * Allowed values for the <code>usageFrequency</code> property.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 ReminderDTO['UsageFrequencyEnum'] = {

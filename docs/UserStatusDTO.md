@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** | User ID | 
-**status** | **String** | User status | [default to &#39;WaitingVerifying&#39;]
+**status** | **Object** | User status | 
 
 
 

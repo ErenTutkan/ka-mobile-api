@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **medicineName** | **String** | medicineName | 
 **usageItemCount** | **Number** | usageItemCount | 
 **usageHours** | **[String]** | usageHours | 
-**usageFrequency** | **String** | Usage Frequency | [default to &#39;EveryDay&#39;]
+**usageFrequency** | **Object** | Usage Frequency | 
 **reminderStartDate** | **Date** | reminderStartDate | 
 **reminderEndDate** | **Date** | reminderEndDate | 
 **tag** | **String** | tag | 

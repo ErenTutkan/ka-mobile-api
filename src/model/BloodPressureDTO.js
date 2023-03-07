@@ -46,8 +46,8 @@ class BloodPressureDTO {
         obj['big'] = big;
         obj['small'] = small;
         obj['pulse'] = pulse;
-        obj['bodyPosition'] = bodyPosition || 'LeftArm';
-        obj['period'] = period || 'OtherTime';
+        obj['bodyPosition'] = bodyPosition;
+        obj['period'] = period;
         obj['tag'] = tag;
         obj['note'] = note;
     }
@@ -76,10 +76,10 @@ class BloodPressureDTO {
                 obj['pulse'] = ApiClient.convertToType(data['pulse'], 'Number');
             }
             if (data.hasOwnProperty('bodyPosition')) {
-                obj['bodyPosition'] = ApiClient.convertToType(data['bodyPosition'], 'String');
+                obj['bodyPosition'] = ApiClient.convertToType(data['bodyPosition'], Object);
             }
             if (data.hasOwnProperty('period')) {
-                obj['period'] = ApiClient.convertToType(data['period'], 'String');
+                obj['period'] = ApiClient.convertToType(data['period'], Object);
             }
             if (data.hasOwnProperty('tag')) {
                 obj['tag'] = ApiClient.convertToType(data['tag'], 'String');
@@ -102,14 +102,6 @@ class BloodPressureDTO {
             if (!data[property]) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
-        }
-        // ensure the json data is a string
-        if (data['bodyPosition'] && !(typeof data['bodyPosition'] === 'string' || data['bodyPosition'] instanceof String)) {
-            throw new Error("Expected the field `bodyPosition` to be a primitive type in the JSON string but got " + data['bodyPosition']);
-        }
-        // ensure the json data is a string
-        if (data['period'] && !(typeof data['period'] === 'string' || data['period'] instanceof String)) {
-            throw new Error("Expected the field `period` to be a primitive type in the JSON string but got " + data['period']);
         }
         // ensure the json data is a string
         if (data['tag'] && !(typeof data['tag'] === 'string' || data['tag'] instanceof String)) {
@@ -155,16 +147,14 @@ BloodPressureDTO.prototype['pulse'] = undefined;
 /**
  * Body Position
  * @member {module:model/BloodPressureDTO.BodyPositionEnum} bodyPosition
- * @default 'LeftArm'
  */
-BloodPressureDTO.prototype['bodyPosition'] = 'LeftArm';
+BloodPressureDTO.prototype['bodyPosition'] = undefined;
 
 /**
  * period
  * @member {module:model/BloodPressureDTO.PeriodEnum} period
- * @default 'OtherTime'
  */
-BloodPressureDTO.prototype['period'] = 'OtherTime';
+BloodPressureDTO.prototype['period'] = undefined;
 
 /**
  * tag
@@ -184,7 +174,7 @@ BloodPressureDTO.prototype['note'] = undefined;
 
 /**
  * Allowed values for the <code>bodyPosition</code> property.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 BloodPressureDTO['BodyPositionEnum'] = {
@@ -205,7 +195,7 @@ BloodPressureDTO['BodyPositionEnum'] = {
 
 /**
  * Allowed values for the <code>period</code> property.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 BloodPressureDTO['PeriodEnum'] = {

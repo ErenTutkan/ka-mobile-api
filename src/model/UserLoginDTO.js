@@ -56,7 +56,7 @@ class UserLoginDTO {
             obj = obj || new UserLoginDTO();
 
             if (data.hasOwnProperty('authType')) {
-                obj['authType'] = ApiClient.convertToType(data['authType'], 'Number');
+                obj['authType'] = ApiClient.convertToType(data['authType'], Object);
             }
             if (data.hasOwnProperty('username')) {
                 obj['username'] = ApiClient.convertToType(data['username'], 'String');
@@ -134,16 +134,28 @@ UserLoginDTO.prototype['uuid'] = undefined;
 
 /**
  * Allowed values for the <code>authType</code> property.
- * @enum {Number}
+ * @enum {Object}
  * @readonly
  */
 UserLoginDTO['AuthTypeEnum'] = {
 
     /**
-     * value: null
+     * value: "Anonymous"
      * @const
      */
-    "null": null
+    "Anonymous": "Anonymous",
+
+    /**
+     * value: "Registered"
+     * @const
+     */
+    "Registered": "Registered",
+
+    /**
+     * value: "Unknown"
+     * @const
+     */
+    "Unknown": "Unknown"
 };
 
 

@@ -37,7 +37,7 @@ class UserStatusDTO {
      */
     static initialize(obj, id, status) { 
         obj['id'] = id;
-        obj['status'] = status || 'WaitingVerifying';
+        obj['status'] = status;
     }
 
     /**
@@ -55,7 +55,7 @@ class UserStatusDTO {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
             if (data.hasOwnProperty('status')) {
-                obj['status'] = ApiClient.convertToType(data['status'], 'String');
+                obj['status'] = ApiClient.convertToType(data['status'], Object);
             }
         }
         return obj;
@@ -72,10 +72,6 @@ class UserStatusDTO {
             if (!data[property]) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
-        }
-        // ensure the json data is a string
-        if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
-            throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
         }
 
         return true;
@@ -95,9 +91,8 @@ UserStatusDTO.prototype['id'] = undefined;
 /**
  * User status
  * @member {module:model/UserStatusDTO.StatusEnum} status
- * @default 'WaitingVerifying'
  */
-UserStatusDTO.prototype['status'] = 'WaitingVerifying';
+UserStatusDTO.prototype['status'] = undefined;
 
 
 
@@ -105,7 +100,7 @@ UserStatusDTO.prototype['status'] = 'WaitingVerifying';
 
 /**
  * Allowed values for the <code>status</code> property.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 UserStatusDTO['StatusEnum'] = {

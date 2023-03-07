@@ -48,7 +48,7 @@ class UserDetailDTO {
     static initialize(obj, email, password, registerProvider, name, surname, identityNo, birthDay, gender, weight, height, mobilePhone, aggrementId) { 
         obj['email'] = email;
         obj['password'] = password;
-        obj['registerProvider'] = registerProvider || 'Manuel';
+        obj['registerProvider'] = registerProvider;
         obj['name'] = name;
         obj['surname'] = surname;
         obj['identityNo'] = identityNo;
@@ -78,7 +78,7 @@ class UserDetailDTO {
                 obj['password'] = ApiClient.convertToType(data['password'], 'String');
             }
             if (data.hasOwnProperty('registerProvider')) {
-                obj['registerProvider'] = ApiClient.convertToType(data['registerProvider'], 'String');
+                obj['registerProvider'] = ApiClient.convertToType(data['registerProvider'], Object);
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -93,7 +93,7 @@ class UserDetailDTO {
                 obj['birthDay'] = ApiClient.convertToType(data['birthDay'], 'Date');
             }
             if (data.hasOwnProperty('gender')) {
-                obj['gender'] = ApiClient.convertToType(data['gender'], 'String');
+                obj['gender'] = ApiClient.convertToType(data['gender'], Object);
             }
             if (data.hasOwnProperty('weight')) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
@@ -132,10 +132,6 @@ class UserDetailDTO {
             throw new Error("Expected the field `password` to be a primitive type in the JSON string but got " + data['password']);
         }
         // ensure the json data is a string
-        if (data['registerProvider'] && !(typeof data['registerProvider'] === 'string' || data['registerProvider'] instanceof String)) {
-            throw new Error("Expected the field `registerProvider` to be a primitive type in the JSON string but got " + data['registerProvider']);
-        }
-        // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
         }
@@ -146,10 +142,6 @@ class UserDetailDTO {
         // ensure the json data is a string
         if (data['identityNo'] && !(typeof data['identityNo'] === 'string' || data['identityNo'] instanceof String)) {
             throw new Error("Expected the field `identityNo` to be a primitive type in the JSON string but got " + data['identityNo']);
-        }
-        // ensure the json data is a string
-        if (data['gender'] && !(typeof data['gender'] === 'string' || data['gender'] instanceof String)) {
-            throw new Error("Expected the field `gender` to be a primitive type in the JSON string but got " + data['gender']);
         }
         // ensure the json data is a string
         if (data['mobilePhone'] && !(typeof data['mobilePhone'] === 'string' || data['mobilePhone'] instanceof String)) {
@@ -179,9 +171,8 @@ UserDetailDTO.prototype['password'] = undefined;
 /**
  * User register provider
  * @member {module:model/UserDetailDTO.RegisterProviderEnum} registerProvider
- * @default 'Manuel'
  */
-UserDetailDTO.prototype['registerProvider'] = 'Manuel';
+UserDetailDTO.prototype['registerProvider'] = undefined;
 
 /**
  * Name
@@ -243,7 +234,7 @@ UserDetailDTO.prototype['aggrementId'] = undefined;
 
 /**
  * Allowed values for the <code>registerProvider</code> property.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 UserDetailDTO['RegisterProviderEnum'] = {
@@ -276,7 +267,7 @@ UserDetailDTO['RegisterProviderEnum'] = {
 
 /**
  * Allowed values for the <code>gender</code> property.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 UserDetailDTO['GenderEnum'] = {

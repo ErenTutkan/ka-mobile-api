@@ -76,7 +76,7 @@ class UserUpdateDTO {
                 obj['birthDay'] = ApiClient.convertToType(data['birthDay'], 'Date');
             }
             if (data.hasOwnProperty('gender')) {
-                obj['gender'] = ApiClient.convertToType(data['gender'], 'String');
+                obj['gender'] = ApiClient.convertToType(data['gender'], Object);
             }
             if (data.hasOwnProperty('weight')) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
@@ -114,10 +114,6 @@ class UserUpdateDTO {
         // ensure the json data is a string
         if (data['identityNo'] && !(typeof data['identityNo'] === 'string' || data['identityNo'] instanceof String)) {
             throw new Error("Expected the field `identityNo` to be a primitive type in the JSON string but got " + data['identityNo']);
-        }
-        // ensure the json data is a string
-        if (data['gender'] && !(typeof data['gender'] === 'string' || data['gender'] instanceof String)) {
-            throw new Error("Expected the field `gender` to be a primitive type in the JSON string but got " + data['gender']);
         }
         // ensure the json data is a string
         if (data['mobilePhone'] && !(typeof data['mobilePhone'] === 'string' || data['mobilePhone'] instanceof String)) {
@@ -186,7 +182,7 @@ UserUpdateDTO.prototype['mobilePhone'] = undefined;
 
 /**
  * Allowed values for the <code>gender</code> property.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 UserUpdateDTO['GenderEnum'] = {

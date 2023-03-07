@@ -45,7 +45,7 @@ class UserCreateDTO {
         obj['authType'] = authType;
         obj['email'] = email;
         obj['password'] = password;
-        obj['registerProvider'] = registerProvider || 'Manuel';
+        obj['registerProvider'] = registerProvider;
         obj['aggrementId'] = aggrementId;
         obj['deviceInfo'] = deviceInfo;
         obj['socialAccessToken'] = socialAccessToken;
@@ -63,7 +63,7 @@ class UserCreateDTO {
             obj = obj || new UserCreateDTO();
 
             if (data.hasOwnProperty('authType')) {
-                obj['authType'] = ApiClient.convertToType(data['authType'], 'Number');
+                obj['authType'] = ApiClient.convertToType(data['authType'], Object);
             }
             if (data.hasOwnProperty('email')) {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
@@ -72,7 +72,7 @@ class UserCreateDTO {
                 obj['password'] = ApiClient.convertToType(data['password'], 'String');
             }
             if (data.hasOwnProperty('registerProvider')) {
-                obj['registerProvider'] = ApiClient.convertToType(data['registerProvider'], 'String');
+                obj['registerProvider'] = ApiClient.convertToType(data['registerProvider'], Object);
             }
             if (data.hasOwnProperty('aggrementId')) {
                 obj['aggrementId'] = ApiClient.convertToType(data['aggrementId'], 'Number');
@@ -106,10 +106,6 @@ class UserCreateDTO {
         // ensure the json data is a string
         if (data['password'] && !(typeof data['password'] === 'string' || data['password'] instanceof String)) {
             throw new Error("Expected the field `password` to be a primitive type in the JSON string but got " + data['password']);
-        }
-        // ensure the json data is a string
-        if (data['registerProvider'] && !(typeof data['registerProvider'] === 'string' || data['registerProvider'] instanceof String)) {
-            throw new Error("Expected the field `registerProvider` to be a primitive type in the JSON string but got " + data['registerProvider']);
         }
         // validate the optional field `deviceInfo`
         if (data['deviceInfo']) { // data not null
@@ -145,9 +141,8 @@ UserCreateDTO.prototype['password'] = undefined;
 /**
  * Register provider
  * @member {module:model/UserCreateDTO.RegisterProviderEnum} registerProvider
- * @default 'Manuel'
  */
-UserCreateDTO.prototype['registerProvider'] = 'Manuel';
+UserCreateDTO.prototype['registerProvider'] = undefined;
 
 /**
  * Accepted aggrement Id
@@ -172,22 +167,34 @@ UserCreateDTO.prototype['socialAccessToken'] = undefined;
 
 /**
  * Allowed values for the <code>authType</code> property.
- * @enum {Number}
+ * @enum {Object}
  * @readonly
  */
 UserCreateDTO['AuthTypeEnum'] = {
 
     /**
-     * value: null
+     * value: "Anonymous"
      * @const
      */
-    "null": null
+    "Anonymous": "Anonymous",
+
+    /**
+     * value: "Registered"
+     * @const
+     */
+    "Registered": "Registered",
+
+    /**
+     * value: "Unknown"
+     * @const
+     */
+    "Unknown": "Unknown"
 };
 
 
 /**
  * Allowed values for the <code>registerProvider</code> property.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 UserCreateDTO['RegisterProviderEnum'] = {

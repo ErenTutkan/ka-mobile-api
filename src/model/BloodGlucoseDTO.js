@@ -41,7 +41,7 @@ class BloodGlucoseDTO {
     static initialize(obj, measurementDate, glucoseValue, hungryStatus, tag, note) { 
         obj['measurementDate'] = measurementDate;
         obj['glucoseValue'] = glucoseValue;
-        obj['hungryStatus'] = hungryStatus || 'AfterMeal';
+        obj['hungryStatus'] = hungryStatus;
         obj['tag'] = tag;
         obj['note'] = note;
     }
@@ -64,7 +64,7 @@ class BloodGlucoseDTO {
                 obj['glucoseValue'] = ApiClient.convertToType(data['glucoseValue'], 'Number');
             }
             if (data.hasOwnProperty('hungryStatus')) {
-                obj['hungryStatus'] = ApiClient.convertToType(data['hungryStatus'], 'String');
+                obj['hungryStatus'] = ApiClient.convertToType(data['hungryStatus'], Object);
             }
             if (data.hasOwnProperty('tag')) {
                 obj['tag'] = ApiClient.convertToType(data['tag'], 'String');
@@ -87,10 +87,6 @@ class BloodGlucoseDTO {
             if (!data[property]) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
-        }
-        // ensure the json data is a string
-        if (data['hungryStatus'] && !(typeof data['hungryStatus'] === 'string' || data['hungryStatus'] instanceof String)) {
-            throw new Error("Expected the field `hungryStatus` to be a primitive type in the JSON string but got " + data['hungryStatus']);
         }
         // ensure the json data is a string
         if (data['tag'] && !(typeof data['tag'] === 'string' || data['tag'] instanceof String)) {
@@ -124,9 +120,8 @@ BloodGlucoseDTO.prototype['glucoseValue'] = undefined;
 /**
  * Hungry Status
  * @member {module:model/BloodGlucoseDTO.HungryStatusEnum} hungryStatus
- * @default 'AfterMeal'
  */
-BloodGlucoseDTO.prototype['hungryStatus'] = 'AfterMeal';
+BloodGlucoseDTO.prototype['hungryStatus'] = undefined;
 
 /**
  * tag
@@ -146,7 +141,7 @@ BloodGlucoseDTO.prototype['note'] = undefined;
 
 /**
  * Allowed values for the <code>hungryStatus</code> property.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 BloodGlucoseDTO['HungryStatusEnum'] = {

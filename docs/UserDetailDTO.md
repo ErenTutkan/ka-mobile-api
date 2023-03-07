@@ -6,12 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **String** | User email address | 
 **password** | **String** | user password | 
-**registerProvider** | **String** | User register provider | [default to &#39;Manuel&#39;]
+**registerProvider** | **Object** | User register provider | 
 **name** | **String** | Name | 
 **surname** | **String** | Surname | 
 **identityNo** | **String** | National identitiy no | 
 **birthDay** | **Date** | Birth day | 
-**gender** | **String** | Gender | 
+**gender** | **Object** | Gender | 
 **weight** | **Number** | Weight | 
 **height** | **Number** | Height | 
 **mobilePhone** | **String** | Mobile Phone | 
