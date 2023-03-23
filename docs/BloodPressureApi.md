@@ -106,7 +106,7 @@ null (empty response body)
 
 ## bloodPressureControllerFindUserAllItems
 
-> bloodPressureControllerFindUserAllItems()
+> BloodPressureDTO bloodPressureControllerFindUserAllItems()
 
 Find User All Items
 
@@ -120,8 +120,8 @@ let bearer = defaultClient.authentications['bearer'];
 bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.BloodPressureApi();
-apiInstance.bloodPressureControllerFindUserAllItems().then(() => {
-  console.log('API called successfully.');
+apiInstance.bloodPressureControllerFindUserAllItems().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -134,7 +134,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-null (empty response body)
+[**BloodPressureDTO**](BloodPressureDTO.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## bloodPressureControllerFindUserItem

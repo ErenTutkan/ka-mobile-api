@@ -128,7 +128,7 @@ export default class BloodPressureApi {
 
     /**
      * Find User All Items
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BloodPressureDTO} and HTTP response
      */
     bloodPressureControllerFindUserAllItemsWithHttpInfo() {
       let postBody = null;
@@ -144,8 +144,8 @@ export default class BloodPressureApi {
 
       let authNames = ['bearer'];
       let contentTypes = [];
-      let accepts = [];
-      let returnType = null;
+      let accepts = ['application/json'];
+      let returnType = BloodPressureDTO;
       return this.apiClient.callApi(
         '/blood-pressure/findUserAllItems', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -155,7 +155,7 @@ export default class BloodPressureApi {
 
     /**
      * Find User All Items
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BloodPressureDTO}
      */
     bloodPressureControllerFindUserAllItems() {
       return this.bloodPressureControllerFindUserAllItemsWithHttpInfo()
