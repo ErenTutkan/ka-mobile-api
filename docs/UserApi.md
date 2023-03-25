@@ -6,14 +6,14 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**userControllerUserDetail**](UserApi.md#userControllerUserDetail) | **GET** /user | Logged User Detail
 [**userControllerUserUpdate**](UserApi.md#userControllerUserUpdate) | **PUT** /user | Logged user update
-[**userControllerUserUpdateStatus**](UserApi.md#userControllerUserUpdateStatus) | **PATCH** /user | Logged User Update Status
-[**userControllerValidateIdentityNo**](UserApi.md#userControllerValidateIdentityNo) | **POST** /user/validate-identity-no | Find Device
+[**userControllerUserUpdateStatus**](UserApi.md#userControllerUserUpdateStatus) | **PUT** /user/user-status | Logged User Update Status
+[**userControllerValidateIdentityNo**](UserApi.md#userControllerValidateIdentityNo) | **POST** /user/validate-identity-no | Validate identitiy no
 
 
 
 ## userControllerUserDetail
 
-> userControllerUserDetail()
+> UserDetailDTO userControllerUserDetail()
 
 Logged User Detail
 
@@ -27,8 +27,8 @@ let bearer = defaultClient.authentications['bearer'];
 bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.UserApi();
-apiInstance.userControllerUserDetail().then(() => {
-  console.log('API called successfully.');
+apiInstance.userControllerUserDetail().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -41,7 +41,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-null (empty response body)
+[**UserDetailDTO**](UserDetailDTO.md)
 
 ### Authorization
 
@@ -50,7 +50,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## userControllerUserUpdate
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ## userControllerUserUpdateStatus
 
-> userControllerUserUpdateStatus(userStatusDTO)
+> Boolean userControllerUserUpdateStatus(userStatusDTO)
 
 Logged User Update Status
 
@@ -116,8 +116,8 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.UserApi();
 let userStatusDTO = new KolayAsistanMobileApi.UserStatusDTO(); // UserStatusDTO | 
-apiInstance.userControllerUserUpdateStatus(userStatusDTO).then(() => {
-  console.log('API called successfully.');
+apiInstance.userControllerUserUpdateStatus(userStatusDTO).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**Boolean**
 
 ### Authorization
 
@@ -142,14 +142,14 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## userControllerValidateIdentityNo
 
-> userControllerValidateIdentityNo(validateIdentityNoDTO)
+> Boolean userControllerValidateIdentityNo(validateIdentityNoDTO)
 
-Find Device
+Validate identitiy no
 
 ### Example
 
@@ -162,8 +162,8 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.UserApi();
 let validateIdentityNoDTO = new KolayAsistanMobileApi.ValidateIdentityNoDTO(); // ValidateIdentityNoDTO | 
-apiInstance.userControllerValidateIdentityNo(validateIdentityNoDTO).then(() => {
-  console.log('API called successfully.');
+apiInstance.userControllerValidateIdentityNo(validateIdentityNoDTO).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**Boolean**
 
 ### Authorization
 
@@ -188,5 +188,5 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 

@@ -1,7 +1,7 @@
 {
   "name": "kolay_asistan_mobile_api",
-  "version": "0.0.3",
-  "description": "Kolay Asistan mobile application api layer. Revision Date: 04.12.2022",
+  "version": "v4.0.0.0",
+  "description": "Kolay Asistan mobile application api layer. Revision Date: 25.03.2023",
   "license": "Unlicense",
   "main": "dist/index.js",
   "scripts": {

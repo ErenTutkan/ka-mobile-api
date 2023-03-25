@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | User ID | 
-**status** | **Object** | User status | 
+**userId** | **Number** | User ID | 
+**status** | **String** | User status | [default to &#39;WaitingVerifying&#39;]
 
 
 

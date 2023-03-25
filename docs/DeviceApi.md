@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## deviceControllerAddNewDevice
 
-> DeviceDTO deviceControllerAddNewDevice(deviceDTO)
+> Number deviceControllerAddNewDevice(deviceDTO)
 
 Add new device
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeviceDTO**](DeviceDTO.md)
+**Number**
 
 ### Authorization
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ## deviceControllerDelete
 
-> deviceControllerDelete(id)
+> Boolean deviceControllerDelete(id)
 
 Delete
 
@@ -75,8 +75,8 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.DeviceApi();
 let id = 3.4; // Number | 
-apiInstance.deviceControllerDelete(id).then(() => {
-  console.log('API called successfully.');
+apiInstance.deviceControllerDelete(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**Boolean**
 
 ### Authorization
 
@@ -101,12 +101,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## deviceControllerFindUserAllItems
 
-> deviceControllerFindUserAllItems()
+> [DeviceDTO] deviceControllerFindUserAllItems()
 
 Find User All Items
 
@@ -120,8 +120,8 @@ let bearer = defaultClient.authentications['bearer'];
 bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.DeviceApi();
-apiInstance.deviceControllerFindUserAllItems().then(() => {
-  console.log('API called successfully.');
+apiInstance.deviceControllerFindUserAllItems().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -134,7 +134,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-null (empty response body)
+[**[DeviceDTO]**](DeviceDTO.md)
 
 ### Authorization
 
@@ -143,12 +143,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## deviceControllerFindUserItem
 
-> deviceControllerFindUserItem(id)
+> DeviceDTO deviceControllerFindUserItem(id)
 
 Find User Item
 
@@ -163,8 +163,8 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.DeviceApi();
 let id = 3.4; // Number | 
-apiInstance.deviceControllerFindUserItem(id).then(() => {
-  console.log('API called successfully.');
+apiInstance.deviceControllerFindUserItem(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**DeviceDTO**](DeviceDTO.md)
 
 ### Authorization
 
@@ -189,12 +189,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## deviceControllerUpdate
 
-> DeviceDTO deviceControllerUpdate(id, deviceDTO)
+> Boolean deviceControllerUpdate(id, deviceDTO)
 
 Update device info
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeviceDTO**](DeviceDTO.md)
+**Boolean**
 
 ### Authorization
 

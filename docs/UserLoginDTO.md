@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**authType** | **Object** | Loging type | 
+**authType** | **Number** | Loging type | 
 **username** | **String** | User email address. please set email address. not set username | 
 **password** | **String** | password | 
 **uuid** | **String** | uuid | 
@@ -14,11 +14,7 @@ Name | Type | Description | Notes
 ## Enum: AuthTypeEnum
 
 
-* `Anonymous` (value: `"Anonymous"`)
-
-* `Registered` (value: `"Registered"`)
-
-* `Unknown` (value: `"Unknown"`)
+* `null` (value: `null`)
 
 
 

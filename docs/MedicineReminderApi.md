@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## reminderControllerCreate
 
-> ReminderDTO reminderControllerCreate(reminderDTO)
+> Number reminderControllerCreate(reminderDTO)
 
 Add
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ReminderDTO**](ReminderDTO.md)
+**Number**
 
 ### Authorization
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ## reminderControllerDelete
 
-> reminderControllerDelete(id)
+> Boolean reminderControllerDelete(id)
 
 Delete
 
@@ -75,8 +75,8 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.MedicineReminderApi();
 let id = 3.4; // Number | 
-apiInstance.reminderControllerDelete(id).then(() => {
-  console.log('API called successfully.');
+apiInstance.reminderControllerDelete(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**Boolean**
 
 ### Authorization
 
@@ -101,12 +101,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## reminderControllerFindUserAllItems
 
-> reminderControllerFindUserAllItems()
+> [ReminderDTO] reminderControllerFindUserAllItems()
 
 Find User All Items
 
@@ -120,8 +120,8 @@ let bearer = defaultClient.authentications['bearer'];
 bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.MedicineReminderApi();
-apiInstance.reminderControllerFindUserAllItems().then(() => {
-  console.log('API called successfully.');
+apiInstance.reminderControllerFindUserAllItems().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -134,7 +134,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-null (empty response body)
+[**[ReminderDTO]**](ReminderDTO.md)
 
 ### Authorization
 
@@ -143,12 +143,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## reminderControllerFindUserItem
 
-> reminderControllerFindUserItem(id)
+> ReminderDTO reminderControllerFindUserItem(id)
 
 Find User Item
 
@@ -163,8 +163,8 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.MedicineReminderApi();
 let id = 3.4; // Number | 
-apiInstance.reminderControllerFindUserItem(id).then(() => {
-  console.log('API called successfully.');
+apiInstance.reminderControllerFindUserItem(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**ReminderDTO**](ReminderDTO.md)
 
 ### Authorization
 
@@ -189,12 +189,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## reminderControllerUpdate
 
-> ReminderDTO reminderControllerUpdate(id, reminderDTO)
+> Boolean reminderControllerUpdate(id, reminderDTO)
 
 Update
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ReminderDTO**](ReminderDTO.md)
+**Boolean**
 
 ### Authorization
 

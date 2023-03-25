@@ -4,19 +4,19 @@ All URIs are relative to *https://ka-mobile-api.herokuapp.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bloodGlucoseControllerCreate**](BloodGlucoseApi.md#bloodGlucoseControllerCreate) | **POST** /blood-glucose | Add
-[**bloodGlucoseControllerDelete**](BloodGlucoseApi.md#bloodGlucoseControllerDelete) | **DELETE** /blood-glucose/{id} | De
+[**bloodGlucoseControllerCreate**](BloodGlucoseApi.md#bloodGlucoseControllerCreate) | **POST** /blood-glucose | Add item
+[**bloodGlucoseControllerDelete**](BloodGlucoseApi.md#bloodGlucoseControllerDelete) | **DELETE** /blood-glucose/{id} | Delete Item
 [**bloodGlucoseControllerFindUserAllItems**](BloodGlucoseApi.md#bloodGlucoseControllerFindUserAllItems) | **GET** /blood-glucose/findUserAllItems | Find User All Items
 [**bloodGlucoseControllerFindUserItem**](BloodGlucoseApi.md#bloodGlucoseControllerFindUserItem) | **GET** /blood-glucose/findUserItem/{id} | Find User Item
-[**bloodGlucoseControllerUpdate**](BloodGlucoseApi.md#bloodGlucoseControllerUpdate) | **PUT** /blood-glucose/{id} | Update
+[**bloodGlucoseControllerUpdate**](BloodGlucoseApi.md#bloodGlucoseControllerUpdate) | **PUT** /blood-glucose/{id} | Update item
 
 
 
 ## bloodGlucoseControllerCreate
 
-> BloodGlucoseDTO bloodGlucoseControllerCreate(bloodGlucoseDTO)
+> Number bloodGlucoseControllerCreate(bloodGlucoseDTO)
 
-Add
+Add item
 
 ### Example
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BloodGlucoseDTO**](BloodGlucoseDTO.md)
+**Number**
 
 ### Authorization
 
@@ -60,9 +60,9 @@ Name | Type | Description  | Notes
 
 ## bloodGlucoseControllerDelete
 
-> bloodGlucoseControllerDelete(id)
+> Boolean bloodGlucoseControllerDelete(id)
 
-De
+Delete Item
 
 ### Example
 
@@ -75,8 +75,8 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.BloodGlucoseApi();
 let id = 3.4; // Number | 
-apiInstance.bloodGlucoseControllerDelete(id).then(() => {
-  console.log('API called successfully.');
+apiInstance.bloodGlucoseControllerDelete(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**Boolean**
 
 ### Authorization
 
@@ -101,12 +101,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## bloodGlucoseControllerFindUserAllItems
 
-> bloodGlucoseControllerFindUserAllItems()
+> [BloodGlucoseDTO] bloodGlucoseControllerFindUserAllItems()
 
 Find User All Items
 
@@ -120,8 +120,8 @@ let bearer = defaultClient.authentications['bearer'];
 bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.BloodGlucoseApi();
-apiInstance.bloodGlucoseControllerFindUserAllItems().then(() => {
-  console.log('API called successfully.');
+apiInstance.bloodGlucoseControllerFindUserAllItems().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -134,7 +134,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-null (empty response body)
+[**[BloodGlucoseDTO]**](BloodGlucoseDTO.md)
 
 ### Authorization
 
@@ -143,12 +143,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## bloodGlucoseControllerFindUserItem
 
-> bloodGlucoseControllerFindUserItem(id)
+> BloodGlucoseDTO bloodGlucoseControllerFindUserItem(id)
 
 Find User Item
 
@@ -163,8 +163,8 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.BloodGlucoseApi();
 let id = 3.4; // Number | 
-apiInstance.bloodGlucoseControllerFindUserItem(id).then(() => {
-  console.log('API called successfully.');
+apiInstance.bloodGlucoseControllerFindUserItem(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**BloodGlucoseDTO**](BloodGlucoseDTO.md)
 
 ### Authorization
 
@@ -189,14 +189,14 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## bloodGlucoseControllerUpdate
 
-> BloodGlucoseDTO bloodGlucoseControllerUpdate(id, bloodGlucoseDTO)
+> Boolean bloodGlucoseControllerUpdate(id, bloodGlucoseDTO)
 
-Update
+Update item
 
 ### Example
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BloodGlucoseDTO**](BloodGlucoseDTO.md)
+**Boolean**
 
 ### Authorization
 

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## cabinetControllerCreate
 
-> CabinetDTO cabinetControllerCreate(cabinetDTO)
+> Number cabinetControllerCreate(cabinetDTO)
 
 Add
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CabinetDTO**](CabinetDTO.md)
+**Number**
 
 ### Authorization
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ## cabinetControllerDelete
 
-> cabinetControllerDelete(id)
+> Boolean cabinetControllerDelete(id)
 
 Delete
 
@@ -75,8 +75,8 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.MedicineCabinetApi();
 let id = 3.4; // Number | 
-apiInstance.cabinetControllerDelete(id).then(() => {
-  console.log('API called successfully.');
+apiInstance.cabinetControllerDelete(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**Boolean**
 
 ### Authorization
 
@@ -101,12 +101,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## cabinetControllerFindUserAllItems
 
-> cabinetControllerFindUserAllItems()
+> [CabinetDTO] cabinetControllerFindUserAllItems()
 
 Find User All Items
 
@@ -120,8 +120,8 @@ let bearer = defaultClient.authentications['bearer'];
 bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.MedicineCabinetApi();
-apiInstance.cabinetControllerFindUserAllItems().then(() => {
-  console.log('API called successfully.');
+apiInstance.cabinetControllerFindUserAllItems().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -134,7 +134,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-null (empty response body)
+[**[CabinetDTO]**](CabinetDTO.md)
 
 ### Authorization
 
@@ -143,12 +143,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## cabinetControllerFindUserItem
 
-> cabinetControllerFindUserItem(id)
+> CabinetDTO cabinetControllerFindUserItem(id)
 
 Find User Item
 
@@ -163,8 +163,8 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.MedicineCabinetApi();
 let id = 3.4; // Number | 
-apiInstance.cabinetControllerFindUserItem(id).then(() => {
-  console.log('API called successfully.');
+apiInstance.cabinetControllerFindUserItem(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**CabinetDTO**](CabinetDTO.md)
 
 ### Authorization
 
@@ -189,12 +189,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## cabinetControllerUpdate
 
-> CabinetDTO cabinetControllerUpdate(id, cabinetDTO)
+> Boolean cabinetControllerUpdate(id, cabinetDTO)
 
 Update
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CabinetDTO**](CabinetDTO.md)
+**Boolean**
 
 ### Authorization
 

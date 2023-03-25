@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **surname** | **String** | Surname | 
 **identityNo** | **String** | National identitiy no | 
 **birthDay** | **Date** | Birth day | 
-**gender** | **Object** | Gender | 
+**gender** | **String** | Gender | 
 **weight** | **Number** | Weight | 
 **height** | **Number** | Height | 
 **mobilePhone** | **String** | Mobile Phone | 

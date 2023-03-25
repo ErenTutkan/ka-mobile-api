@@ -4,19 +4,19 @@ All URIs are relative to *https://ka-mobile-api.herokuapp.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bloodPressureControllerCreate**](BloodPressureApi.md#bloodPressureControllerCreate) | **POST** /blood-pressure | Add
-[**bloodPressureControllerDelete**](BloodPressureApi.md#bloodPressureControllerDelete) | **DELETE** /blood-pressure/{id} | De
+[**bloodPressureControllerCreate**](BloodPressureApi.md#bloodPressureControllerCreate) | **POST** /blood-pressure | Add new item
+[**bloodPressureControllerDelete**](BloodPressureApi.md#bloodPressureControllerDelete) | **DELETE** /blood-pressure/{id} | Delete item
 [**bloodPressureControllerFindUserAllItems**](BloodPressureApi.md#bloodPressureControllerFindUserAllItems) | **GET** /blood-pressure/findUserAllItems | Find User All Items
 [**bloodPressureControllerFindUserItem**](BloodPressureApi.md#bloodPressureControllerFindUserItem) | **GET** /blood-pressure/findUserItem/{id} | Find User Item
-[**bloodPressureControllerUpdate**](BloodPressureApi.md#bloodPressureControllerUpdate) | **PUT** /blood-pressure/{id} | Update
+[**bloodPressureControllerUpdate**](BloodPressureApi.md#bloodPressureControllerUpdate) | **PUT** /blood-pressure/{id} | Update item
 
 
 
 ## bloodPressureControllerCreate
 
-> BloodPressureDTO bloodPressureControllerCreate(bloodPressureDTO)
+> Number bloodPressureControllerCreate(bloodPressureDTO)
 
-Add
+Add new item
 
 ### Example
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BloodPressureDTO**](BloodPressureDTO.md)
+**Number**
 
 ### Authorization
 
@@ -60,9 +60,9 @@ Name | Type | Description  | Notes
 
 ## bloodPressureControllerDelete
 
-> bloodPressureControllerDelete(id)
+> Boolean bloodPressureControllerDelete(id)
 
-De
+Delete item
 
 ### Example
 
@@ -75,8 +75,8 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.BloodPressureApi();
 let id = 3.4; // Number | 
-apiInstance.bloodPressureControllerDelete(id).then(() => {
-  console.log('API called successfully.');
+apiInstance.bloodPressureControllerDelete(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**Boolean**
 
 ### Authorization
 
@@ -101,12 +101,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## bloodPressureControllerFindUserAllItems
 
-> BloodPressureDTO bloodPressureControllerFindUserAllItems()
+> [BloodPressureDTO] bloodPressureControllerFindUserAllItems()
 
 Find User All Items
 
@@ -134,7 +134,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BloodPressureDTO**](BloodPressureDTO.md)
+[**[BloodPressureDTO]**](BloodPressureDTO.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ This endpoint does not need any parameter.
 
 ## bloodPressureControllerFindUserItem
 
-> bloodPressureControllerFindUserItem(id)
+> BloodPressureDTO bloodPressureControllerFindUserItem(id)
 
 Find User Item
 
@@ -163,8 +163,8 @@ bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new KolayAsistanMobileApi.BloodPressureApi();
 let id = 3.4; // Number | 
-apiInstance.bloodPressureControllerFindUserItem(id).then(() => {
-  console.log('API called successfully.');
+apiInstance.bloodPressureControllerFindUserItem(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**BloodPressureDTO**](BloodPressureDTO.md)
 
 ### Authorization
 
@@ -189,14 +189,14 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## bloodPressureControllerUpdate
 
-> BloodPressureDTO bloodPressureControllerUpdate(id, bloodPressureDTO)
+> Boolean bloodPressureControllerUpdate(id, bloodPressureDTO)
 
-Update
+Update item
 
 ### Example
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BloodPressureDTO**](BloodPressureDTO.md)
+**Boolean**
 
 ### Authorization
 

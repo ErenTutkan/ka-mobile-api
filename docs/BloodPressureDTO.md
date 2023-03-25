@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **big** | **Number** | Measurement Value | 
 **small** | **Number** | Measurement Small Value | 
 **pulse** | **Number** | Pulse | 
-**bodyPosition** | **Object** | Body Position | 
-**period** | **Object** | period | 
+**bodyPosition** | **String** | Body Position | [default to &#39;LeftArm&#39;]
+**period** | **String** | period | [default to &#39;OtherTime&#39;]
 **tag** | **String** | tag | 
 **note** | **String** | note | 
 
