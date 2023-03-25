@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**authType** | **Number** | Loging type | 
+**authType** | **String** | Loging type | 
 **email** | **String** | Email address | 
 **password** | **String** | Password | 
 **registerProvider** | **String** | Register provider | [default to &#39;Manuel&#39;]
@@ -17,7 +17,11 @@ Name | Type | Description | Notes
 ## Enum: AuthTypeEnum
 
 
-* `null` (value: `null`)
+* `Anonymous` (value: `"Anonymous"`)
+
+* `Registered` (value: `"Registered"`)
+
+* `Unknown` (value: `"Unknown"`)
 
 
 

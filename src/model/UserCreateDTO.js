@@ -63,7 +63,7 @@ class UserCreateDTO {
             obj = obj || new UserCreateDTO();
 
             if (data.hasOwnProperty('authType')) {
-                obj['authType'] = ApiClient.convertToType(data['authType'], 'Number');
+                obj['authType'] = ApiClient.convertToType(data['authType'], 'String');
             }
             if (data.hasOwnProperty('email')) {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
@@ -98,6 +98,10 @@ class UserCreateDTO {
             if (!data[property]) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
+        }
+        // ensure the json data is a string
+        if (data['authType'] && !(typeof data['authType'] === 'string' || data['authType'] instanceof String)) {
+            throw new Error("Expected the field `authType` to be a primitive type in the JSON string but got " + data['authType']);
         }
         // ensure the json data is a string
         if (data['email'] && !(typeof data['email'] === 'string' || data['email'] instanceof String)) {
@@ -172,16 +176,28 @@ UserCreateDTO.prototype['socialAccessToken'] = undefined;
 
 /**
  * Allowed values for the <code>authType</code> property.
- * @enum {Number}
+ * @enum {String}
  * @readonly
  */
 UserCreateDTO['AuthTypeEnum'] = {
 
     /**
-     * value: null
+     * value: "Anonymous"
      * @const
      */
-    "null": null
+    "Anonymous": "Anonymous",
+
+    /**
+     * value: "Registered"
+     * @const
+     */
+    "Registered": "Registered",
+
+    /**
+     * value: "Unknown"
+     * @const
+     */
+    "Unknown": "Unknown"
 };
 
 
