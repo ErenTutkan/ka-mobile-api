@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **Number** | id | 
+**userId** | **Number** | userId | 
 **measurementDate** | **Date** | Measurement Date | 
 **glucoseValue** | **Number** | Measurement Value | 
 **hungryStatus** | **String** | Hungry Status | [default to &#39;AfterMeal&#39;]

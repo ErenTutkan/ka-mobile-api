@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **Number** | id | 
+**userId** | **Number** | userId | 
 **medicineBarcode** | **String** | medicineBarcode | 
 **medicineName** | **String** | medicineName | 
 **usageItemCount** | **Number** | usageItemCount | 
@@ -28,6 +30,14 @@ Name | Type | Description | Notes
 * `EveryMonth` (value: `"EveryMonth"`)
 
 * `Every2Days` (value: `"Every2Days"`)
+
+* `Every3Days` (value: `"Every3Days"`)
+
+* `Every4Days` (value: `"Every4Days"`)
+
+* `Every5Days` (value: `"Every5Days"`)
+
+* `Every6Days` (value: `"Every6Days"`)
 
 
 

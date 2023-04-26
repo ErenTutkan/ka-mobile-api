@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **Number** | id | 
+**userId** | **Number** | userId | 
 **measurementDate** | **Date** | measurementDate | 
 **big** | **Number** | Measurement Value | 
 **small** | **Number** | Measurement Small Value | 
