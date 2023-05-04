@@ -4,11 +4,13 @@
 README.md
 docs/ApprovalDTO.md
 docs/AuthorizationApi.md
+docs/BatchJobsApi.md
 docs/BloodGlucoseApi.md
 docs/BloodGlucoseDTO.md
 docs/BloodPressureApi.md
 docs/BloodPressureDTO.md
 docs/CabinetDTO.md
+docs/CabinetSummaryDTO.md
 docs/DeviceApi.md
 docs/DeviceDTO.md
 docs/DeviceStatusDTO.md
@@ -30,6 +32,7 @@ mocha.opts
 package.json
 src/ApiClient.js
 src/api/AuthorizationApi.js
+src/api/BatchJobsApi.js
 src/api/BloodGlucoseApi.js
 src/api/BloodPressureApi.js
 src/api/DeviceApi.js
@@ -42,6 +45,7 @@ src/model/ApprovalDTO.js
 src/model/BloodGlucoseDTO.js
 src/model/BloodPressureDTO.js
 src/model/CabinetDTO.js
+src/model/CabinetSummaryDTO.js
 src/model/DeviceDTO.js
 src/model/DeviceStatusDTO.js
 src/model/ReminderDTO.js

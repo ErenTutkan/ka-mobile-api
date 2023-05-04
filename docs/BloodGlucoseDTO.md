@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **hungryStatus** | **String** | Hungry Status | [default to &#39;AfterMeal&#39;]
 **tag** | **String** | tag | 
 **note** | **String** | note | 
+**scaleCaption** | **String** | scaleCaption | 
+**scaleValue** | **Number** | scaleValue | 
 
 
 

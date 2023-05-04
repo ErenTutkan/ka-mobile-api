@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**cabinetControllerFindUserAllItems**](MedicineCabinetApi.md#cabinetControllerFindUserAllItems) | **GET** /cabinet/findUserAllItems | Find User All Items
 [**cabinetControllerFindUserItem**](MedicineCabinetApi.md#cabinetControllerFindUserItem) | **GET** /cabinet/findUserItem/{id} | Find User Item
 [**cabinetControllerUpdate**](MedicineCabinetApi.md#cabinetControllerUpdate) | **PUT** /cabinet/{id} | Update
+[**cabinetControllerUserCabinetSummary**](MedicineCabinetApi.md#cabinetControllerUserCabinetSummary) | **GET** /cabinet/userCabinetSummary | User Cabinet Summary
 
 
 
@@ -237,5 +238,47 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## cabinetControllerUserCabinetSummary
+
+> [CabinetSummaryDTO] cabinetControllerUserCabinetSummary()
+
+User Cabinet Summary
+
+### Example
+
+```javascript
+import KolayAsistanMobileApi from 'kolay_asistan_mobile_api';
+let defaultClient = KolayAsistanMobileApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearer
+let bearer = defaultClient.authentications['bearer'];
+bearer.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new KolayAsistanMobileApi.MedicineCabinetApi();
+apiInstance.cabinetControllerUserCabinetSummary().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**[CabinetSummaryDTO]**](CabinetSummaryDTO.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 

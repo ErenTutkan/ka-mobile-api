@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 **packCount** | **Number** | packCount | 
 **expireDate** | **Date** | expireDate | 
 **comment** | **String** | comment | 
-**isActive** | **Boolean** | isActive | 
+**isActive** | **Number** | isActive | 
 **remainingDays** | **Number** | remainingDays | 
-**isExpired** | **Boolean** | isExpired | 
+**isExpired** | **Number** | isExpired | 
+**isRecipeMedicine** | **Number** | isRecipeMedicine | 
 
 

@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **period** | **String** | period | [default to &#39;OtherTime&#39;]
 **tag** | **String** | tag | 
 **note** | **String** | note | 
+**scaleCaption** | **String** | scaleCaption | 
+**scaleValue** | **Number** | scaleValue | 
 
 
 
