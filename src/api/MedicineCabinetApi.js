@@ -129,7 +129,7 @@ export default class MedicineCabinetApi {
 
     /**
      * Find User All Items
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/CabinetDTO>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CabinetDTO} and HTTP response
      */
     cabinetControllerFindUserAllItemsWithHttpInfo() {
       let postBody = null;
@@ -146,7 +146,7 @@ export default class MedicineCabinetApi {
       let authNames = ['bearer'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [CabinetDTO];
+      let returnType = CabinetDTO;
       return this.apiClient.callApi(
         '/cabinet/findUserAllItems', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -156,7 +156,7 @@ export default class MedicineCabinetApi {
 
     /**
      * Find User All Items
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/CabinetDTO>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CabinetDTO}
      */
     cabinetControllerFindUserAllItems() {
       return this.cabinetControllerFindUserAllItemsWithHttpInfo()
