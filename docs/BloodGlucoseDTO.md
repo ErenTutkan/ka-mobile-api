@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | id | 
-**userId** | **Number** | userId | 
+**id** | **Number** | id | [optional] 
+**userId** | **Number** | userId | [optional] 
 **measurementDate** | **Date** | Measurement Date | 
 **glucoseValue** | **Number** | Measurement Value | 
 **hungryStatus** | **String** | Hungry Status | [default to &#39;AfterMeal&#39;]
-**tag** | **String** | tag | 
-**note** | **String** | note | 
-**scaleCaption** | **String** | scaleCaption | 
-**scaleValue** | **Number** | scaleValue | 
+**tag** | **String** | tag | [optional] 
+**note** | **String** | note | [optional] 
+**scaleCaption** | **String** | scaleCaption | [optional] 
+**scaleValue** | **Number** | scaleValue | [optional] 
 
 
 

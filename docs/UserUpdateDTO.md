@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Name | 
 **surname** | **String** | Surname | 
-**identityNo** | **String** | National identitiy no | 
+**identityNo** | **String** | National identitiy no | [optional] 
 **birthDay** | **Date** | Birth day | 
 **gender** | **String** | Gender | 
-**weight** | **Number** | Weight | 
-**height** | **Number** | Height | 
+**weight** | **Number** | Weight | [optional] 
+**height** | **Number** | Height | [optional] 
 **mobilePhone** | **String** | Mobile Phone | 
 
 

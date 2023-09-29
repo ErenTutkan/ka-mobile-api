@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**activeMedicineCount** | **Number** | activeMedicineCount | 
-**passiveMedicineCount** | **Number** | passiveMedicineCount | 
-**expiredMedicineCount** | **Number** | expiredMedicineCount | 
+**activeMedicineCount** | **Number** | activeMedicineCount | [optional] 
+**passiveMedicineCount** | **Number** | passiveMedicineCount | [optional] 
+**expiredMedicineCount** | **Number** | expiredMedicineCount | [optional] 
 
 

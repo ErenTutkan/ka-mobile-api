@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ## cabinetControllerUserCabinetSummary
 
-> CabinetSummaryDTO cabinetControllerUserCabinetSummary()
+> [CabinetSummaryDTO] cabinetControllerUserCabinetSummary()
 
 User Cabinet Summary
 
@@ -271,7 +271,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**CabinetSummaryDTO**](CabinetSummaryDTO.md)
+[**[CabinetSummaryDTO]**](CabinetSummaryDTO.md)
 
 ### Authorization
 

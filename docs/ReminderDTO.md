@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | id | 
-**userId** | **Number** | userId | 
+**id** | **Number** | id | [optional] 
+**userId** | **Number** | userId | [optional] 
 **medicineBarcode** | **String** | medicineBarcode | 
 **medicineName** | **String** | medicineName | 
 **usageItemCount** | **Number** | usageItemCount | 
@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **usageFrequency** | **String** | Usage Frequency | [default to &#39;EveryDay&#39;]
 **reminderStartDate** | **Date** | reminderStartDate | 
 **reminderEndDate** | **Date** | reminderEndDate | 
-**tag** | **String** | tag | 
-**note** | **String** | note | 
+**tag** | **String** | tag | [optional] 
+**note** | **String** | note | [optional] 
 
 
 

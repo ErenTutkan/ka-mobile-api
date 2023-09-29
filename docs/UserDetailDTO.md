@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **identityNo** | **String** | National identitiy no | 
 **birthDay** | **Date** | Birth day | 
 **gender** | **String** | Gender | 
-**weight** | **Number** | Weight | 
-**height** | **Number** | Height | 
+**weight** | **Number** | Weight | [optional] 
+**height** | **Number** | Height | [optional] 
 **mobilePhone** | **String** | Mobile Phone | 
 **aggrementId** | **Number** | Accepted aggrement Id | 
 
