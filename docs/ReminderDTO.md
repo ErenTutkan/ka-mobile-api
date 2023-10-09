@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **reminderEndDate** | **Date** | reminderEndDate | 
 **tag** | **String** | tag | [optional] 
 **note** | **String** | note | [optional] 
+**sourceType** | **String** | Source type.  Must be Medicine or Retail. Default value is Retail | [default to &#39;Retail&#39;]
+**imageUrl** | **String** | medicine image url | [optional] 
 
 
 
@@ -38,6 +40,17 @@ Name | Type | Description | Notes
 * `Every5Days` (value: `"Every5Days"`)
 
 * `Every6Days` (value: `"Every6Days"`)
+
+
+
+
+
+## Enum: SourceTypeEnum
+
+
+* `Retail` (value: `"Retail"`)
+
+* `Recipe` (value: `"Recipe"`)
 
 
 

@@ -15,6 +15,19 @@ Name | Type | Description | Notes
 **isActive** | **Number** | isActive | [optional] 
 **remainingDays** | **Number** | remainingDays | [optional] 
 **isExpired** | **Number** | isExpired | [optional] 
-**isRecipeMedicine** | **Number** | isRecipeMedicine | [optional] 
+**isRecipeMedicine** | **Number** | isRecipeMedicine - !!! Dont use. Please set sourceType field | [optional] 
+**sourceType** | **String** | Source type.  Must be Medicine or Retail. Default value is Retail | [default to &#39;Retail&#39;]
+**imageUrl** | **String** | medicine image url | [optional] 
+
+
+
+## Enum: SourceTypeEnum
+
+
+* `Retail` (value: `"Retail"`)
+
+* `Recipe` (value: `"Recipe"`)
+
+
 
 
