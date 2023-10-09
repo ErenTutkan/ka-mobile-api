@@ -65,4 +65,3 @@ src/model/UserStatusDTO.js
 src/model/UserTokenDTO.js
 src/model/UserUpdateDTO.js
 src/model/ValidateIdentityNoDTO.js
-test/api/MedicineRecipeApi.spec.js
