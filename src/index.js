@@ -32,6 +32,16 @@ import UserStatusDTO from './model/UserStatusDTO';
 import UserTokenDTO from './model/UserTokenDTO';
 import UserUpdateDTO from './model/UserUpdateDTO';
 import ValidateIdentityNoDTO from './model/ValidateIdentityNoDTO';
+import AuthorizationApi from './api/AuthorizationApi';
+import BatchJobsApi from './api/BatchJobsApi';
+import BloodGlucoseApi from './api/BloodGlucoseApi';
+import BloodPressureApi from './api/BloodPressureApi';
+import DeviceApi from './api/DeviceApi';
+import MedicineCabinetApi from './api/MedicineCabinetApi';
+import MedicineRecipeApi from './api/MedicineRecipeApi';
+import MedicineReminderApi from './api/MedicineReminderApi';
+import UserApi from './api/UserApi';
+import UserApprovalsApi from './api/UserApprovalsApi';
 
 
 /**
@@ -184,5 +194,65 @@ export {
      * The ValidateIdentityNoDTO model constructor.
      * @property {module:model/ValidateIdentityNoDTO}
      */
-    ValidateIdentityNoDTO
+    ValidateIdentityNoDTO,
+
+    /**
+    * The AuthorizationApi service constructor.
+    * @property {module:api/AuthorizationApi}
+    */
+    AuthorizationApi,
+
+    /**
+    * The BatchJobsApi service constructor.
+    * @property {module:api/BatchJobsApi}
+    */
+    BatchJobsApi,
+
+    /**
+    * The BloodGlucoseApi service constructor.
+    * @property {module:api/BloodGlucoseApi}
+    */
+    BloodGlucoseApi,
+
+    /**
+    * The BloodPressureApi service constructor.
+    * @property {module:api/BloodPressureApi}
+    */
+    BloodPressureApi,
+
+    /**
+    * The DeviceApi service constructor.
+    * @property {module:api/DeviceApi}
+    */
+    DeviceApi,
+
+    /**
+    * The MedicineCabinetApi service constructor.
+    * @property {module:api/MedicineCabinetApi}
+    */
+    MedicineCabinetApi,
+
+    /**
+    * The MedicineRecipeApi service constructor.
+    * @property {module:api/MedicineRecipeApi}
+    */
+    MedicineRecipeApi,
+
+    /**
+    * The MedicineReminderApi service constructor.
+    * @property {module:api/MedicineReminderApi}
+    */
+    MedicineReminderApi,
+
+    /**
+    * The UserApi service constructor.
+    * @property {module:api/UserApi}
+    */
+    UserApi,
+
+    /**
+    * The UserApprovalsApi service constructor.
+    * @property {module:api/UserApprovalsApi}
+    */
+    UserApprovalsApi
 };
