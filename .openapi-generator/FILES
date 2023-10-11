@@ -16,8 +16,11 @@ docs/DeviceDTO.md
 docs/DeviceStatusDTO.md
 docs/DoctorDTO.md
 docs/MedicineCabinetApi.md
+docs/MedicineDTO.md
+docs/MedicineDTOPharmacy.md
 docs/MedicineRecipeApi.md
 docs/MedicineReminderApi.md
+docs/PharmacyDTO.md
 docs/RecipeDTO.md
 docs/RecipeDTODoctor.md
 docs/ReminderDTO.md
@@ -54,6 +57,9 @@ src/model/CabinetSummaryDTO.js
 src/model/DeviceDTO.js
 src/model/DeviceStatusDTO.js
 src/model/DoctorDTO.js
+src/model/MedicineDTO.js
+src/model/MedicineDTOPharmacy.js
+src/model/PharmacyDTO.js
 src/model/RecipeDTO.js
 src/model/RecipeDTODoctor.js
 src/model/ReminderDTO.js
@@ -65,3 +71,6 @@ src/model/UserStatusDTO.js
 src/model/UserTokenDTO.js
 src/model/UserUpdateDTO.js
 src/model/ValidateIdentityNoDTO.js
+test/model/MedicineDTO.spec.js
+test/model/MedicineDTOPharmacy.spec.js
+test/model/PharmacyDTO.spec.js
