@@ -71,6 +71,3 @@ src/model/UserStatusDTO.js
 src/model/UserTokenDTO.js
 src/model/UserUpdateDTO.js
 src/model/ValidateIdentityNoDTO.js
-test/model/MedicineDTO.spec.js
-test/model/MedicineDTOPharmacy.spec.js
-test/model/PharmacyDTO.spec.js
