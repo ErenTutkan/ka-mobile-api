@@ -69,7 +69,7 @@ export default class MedicineRecipeApi {
     recipeControllerFindUserMedicines() {
       return this.recipeControllerFindUserMedicinesWithHttpInfo()
         .then(function(response_and_data) {
-          return response_and_data.data;
+          return response_and_data.response.body.data;
         });
     }
 
